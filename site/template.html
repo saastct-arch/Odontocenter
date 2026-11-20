@@ -429,8 +429,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="conv" id="conv-box" hidden style="margin-top:14px"><label class="lb" for="convenio">Qual convênio?</label><select id="convenio" name="convenio"><option value="">Selecione</option>{{conv_opts}}</select><p class="err">Escolha o convênio.</p></div></fieldset>
     <div id="f-nome"><label class="lb" for="nome">5. Nome do paciente</label><input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Nome completo"><p class="err">Informe o nome do paciente.</p></div>
     <div><label class="lb" for="desc">6. Conte o que você precisa <span class="opt">(opcional)</span></label><textarea id="desc" name="desc" placeholder="Ex.: dor no dente, orçamento de aparelho, consulta para meu filho de 8 anos"></textarea></div>
-    <div class="submit"><button class="btn btn-wa" type="submit">{{wa}} Enviar para o WhatsApp</button><p>Você será levado ao WhatsApp da unidade escolhida. Nada é enviado até você tocar em enviar lá.</p></div>
-    <div class="sent" id="sent" role="status" aria-live="polite"><h3>Mensagem pronta</h3><pre id="msg-prev"></pre><p style="font-size:14px;color:var(--ink-soft)">Se o WhatsApp não abriu sozinho, use o botão abaixo.</p><a class="btn btn-b" id="open-wa" href="#" target="_blank" rel="noopener">{{wa}} Abrir conversa no WhatsApp</a></div>
+    <div class="submit"><a class="btn btn-wa" id="send" href="#agendar" target="_blank" rel="noopener" role="button">{{wa}} Enviar para o WhatsApp</a><p>Abre a conversa com a unidade escolhida, com a mensagem pronta. Nada é enviado até você tocar em enviar no WhatsApp.</p></div>
   </form>
 </div></div></section>
 </main>
@@ -498,19 +497,22 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   $$('input[name=tipo]').forEach(function(r){r.addEventListener('change',function(){$('#conv-box').hidden=(r.value!=='Convênio'||!r.checked);clear($('#f-tipo'))})});
   $$('input,select',form).forEach(function(i){i.addEventListener('change',function(){clear(i.closest('fieldset,#f-serv,#f-nome,.conv'))});i.addEventListener('input',function(){clear(i.closest('#f-nome'))})});
   function val(n){var c=$('input[name='+n+']:checked');return c?c.value:''}
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
+  // O botão é um link real: o navegador abre o WhatsApp no primeiro clique, sem janela bloqueada nem segundo botão.
+  var send=$('#send');
+  function build(mark){
     var unit=val('unidade'),serv=$('#servico').value,hor=val('horario'),tipo=val('tipo'),conv=$('#convenio').value,nome=$('#nome').value.trim(),desc=$('#desc').value.trim(),bad=[];
-    function chk(ok,el){if(!ok){el.classList.add('invalid');bad.push(el)}else clear(el)}
+    function chk(ok,el){if(!ok){bad.push(el);if(mark)el.classList.add('invalid')}else clear(el)}
     chk(!!unit,$('#f-unit'));chk(!!serv,$('#f-serv'));chk(!!hor,$('#f-hor'));chk(!!tipo,$('#f-tipo'));
-    chk(tipo!=='Convênio'||!!conv,$('.conv'));if(tipo==='Convênio'&&!conv){$('#f-tipo').classList.add('invalid')}
+    chk(tipo!=='Convênio'||!!conv,$('.conv'));if(mark&&tipo==='Convênio'&&!conv){$('#f-tipo').classList.add('invalid')}
     chk(nome.length>1,$('#f-nome'));
-    if(bad.length){var f=bad[0];f.scrollIntoView({block:'center'});var fe=$('input,select',f);if(fe)fe.focus({preventScroll:true});return}
+    if(bad.length)return {bad:bad};
     var tx='Olá! Vim pelo site da OdontoCenter e gostaria de agendar.\n\n*Unidade:* '+UNITS[unit].nome+'\n*Serviço:* '+serv+'\n*Horário preferencial:* '+hor+'\n*Atendimento:* '+(tipo==='Convênio'?'Convênio ('+conv+')':'Particular')+'\n*Paciente:* '+nome+(desc?'\n*Observações:* '+desc:'')+'\n\nPodem confirmar um horário? Obrigado!';
-    var url=wa(unit,tx);$('#msg-prev').textContent=tx.replace(/\*/g,'');$('#open-wa').href=url;$('#sent').classList.add('show');
-    var w=null;try{w=window.open(url,'_blank')}catch(_){}if(w){try{w.opener=null}catch(_){}}
-    $('#sent').scrollIntoView({block:'nearest'});
-  });
+    return {url:wa(unit,tx)};
+  }
+  function sync(){var r=build(false);send.href=r.url||'#agendar'}
+  form.addEventListener('input',sync);form.addEventListener('change',sync);
+  send.addEventListener('click',function(e){var r=build(true);if(r.bad){e.preventDefault();var f=r.bad[0];f.scrollIntoView({block:'center'});var fe=$('input,select',f);if(fe)fe.focus({preventScroll:true});return}send.href=r.url});
+  form.addEventListener('submit',function(e){e.preventDefault();send.click()});
   // ---------- aviso, unidades, abas, WhatsApp flutuante
   $('#announce-x').addEventListener('click',function(){$('#announce').hidden=true});
   var photos=$$('.photos img');

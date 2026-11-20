@@ -437,8 +437,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="conv" id="conv-box" hidden style="margin-top:14px"><label class="lb" for="convenio">Qual convênio?</label><select id="convenio" name="convenio"><option value="">Selecione</option><option value="LumarMetals">LumarMetals</option><option value="AAPI">AAPI</option><option value="Novo Oriente (plano de assistência familiar)">Novo Oriente (plano de assistência familiar)</option><option value="Cenibra">Cenibra</option><option value="Correios – Postal Saúde">Correios – Postal Saúde</option><option value="COPASS Saúde">COPASS Saúde</option><option value="Rede UNNA: Bradesco">Rede UNNA: Bradesco</option><option value="Rede UNNA: Unimed">Rede UNNA: Unimed</option><option value="Rede UNNA: Riachuelo (RCHLO)">Rede UNNA: Riachuelo (RCHLO)</option><option value="Rede UNNA: OdontoPrev">Rede UNNA: OdontoPrev</option><option value="Brasil Dental">Brasil Dental</option><option value="Rede Dental">Rede Dental</option><option value="Prívian">Prívian</option><option value="Odontoserv">Odontoserv</option><option value="SEPAO">SEPAO</option><option value="Prontodente">Prontodente</option><option value="IBI">IBI</option><option value="DM Odonto">DM Odonto</option><option value="Outro convênio">Outro convênio</option></select><p class="err">Escolha o convênio.</p></div></fieldset>
     <div id="f-nome"><label class="lb" for="nome">5. Nome do paciente</label><input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Nome completo"><p class="err">Informe o nome do paciente.</p></div>
     <div><label class="lb" for="desc">6. Conte o que você precisa <span class="opt">(opcional)</span></label><textarea id="desc" name="desc" placeholder="Ex.: dor no dente, orçamento de aparelho, consulta para meu filho de 8 anos"></textarea></div>
-    <div class="submit"><button class="btn btn-wa" type="submit"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Enviar para o WhatsApp</button><p>Você será levado ao WhatsApp da unidade escolhida. Nada é enviado até você tocar em enviar lá.</p></div>
-    <div class="sent" id="sent" role="status" aria-live="polite"><h3>Mensagem pronta</h3><pre id="msg-prev"></pre><p style="font-size:14px;color:var(--ink-soft)">Se o WhatsApp não abriu sozinho, use o botão abaixo.</p><a class="btn btn-b" id="open-wa" href="#" target="_blank" rel="noopener"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Abrir conversa no WhatsApp</a></div>
+    <div class="submit"><a class="btn btn-wa" id="send" href="#agendar" target="_blank" rel="noopener" role="button"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Enviar para o WhatsApp</a><p>Abre a conversa com a unidade escolhida, com a mensagem pronta. Nada é enviado até você tocar em enviar no WhatsApp.</p></div>
   </form>
 </div></div></section>
 </main>
@@ -506,19 +505,22 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   $$('input[name=tipo]').forEach(function(r){r.addEventListener('change',function(){$('#conv-box').hidden=(r.value!=='Convênio'||!r.checked);clear($('#f-tipo'))})});
   $$('input,select',form).forEach(function(i){i.addEventListener('change',function(){clear(i.closest('fieldset,#f-serv,#f-nome,.conv'))});i.addEventListener('input',function(){clear(i.closest('#f-nome'))})});
   function val(n){var c=$('input[name='+n+']:checked');return c?c.value:''}
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
+  // O botão é um link real: o navegador abre o WhatsApp no primeiro clique, sem janela bloqueada nem segundo botão.
+  var send=$('#send');
+  function build(mark){
     var unit=val('unidade'),serv=$('#servico').value,hor=val('horario'),tipo=val('tipo'),conv=$('#convenio').value,nome=$('#nome').value.trim(),desc=$('#desc').value.trim(),bad=[];
-    function chk(ok,el){if(!ok){el.classList.add('invalid');bad.push(el)}else clear(el)}
+    function chk(ok,el){if(!ok){bad.push(el);if(mark)el.classList.add('invalid')}else clear(el)}
     chk(!!unit,$('#f-unit'));chk(!!serv,$('#f-serv'));chk(!!hor,$('#f-hor'));chk(!!tipo,$('#f-tipo'));
-    chk(tipo!=='Convênio'||!!conv,$('.conv'));if(tipo==='Convênio'&&!conv){$('#f-tipo').classList.add('invalid')}
+    chk(tipo!=='Convênio'||!!conv,$('.conv'));if(mark&&tipo==='Convênio'&&!conv){$('#f-tipo').classList.add('invalid')}
     chk(nome.length>1,$('#f-nome'));
-    if(bad.length){var f=bad[0];f.scrollIntoView({block:'center'});var fe=$('input,select',f);if(fe)fe.focus({preventScroll:true});return}
+    if(bad.length)return {bad:bad};
     var tx='Olá! Vim pelo site da OdontoCenter e gostaria de agendar.\n\n*Unidade:* '+UNITS[unit].nome+'\n*Serviço:* '+serv+'\n*Horário preferencial:* '+hor+'\n*Atendimento:* '+(tipo==='Convênio'?'Convênio ('+conv+')':'Particular')+'\n*Paciente:* '+nome+(desc?'\n*Observações:* '+desc:'')+'\n\nPodem confirmar um horário? Obrigado!';
-    var url=wa(unit,tx);$('#msg-prev').textContent=tx.replace(/\*/g,'');$('#open-wa').href=url;$('#sent').classList.add('show');
-    var w=null;try{w=window.open(url,'_blank')}catch(_){}if(w){try{w.opener=null}catch(_){}}
-    $('#sent').scrollIntoView({block:'nearest'});
-  });
+    return {url:wa(unit,tx)};
+  }
+  function sync(){var r=build(false);send.href=r.url||'#agendar'}
+  form.addEventListener('input',sync);form.addEventListener('change',sync);
+  send.addEventListener('click',function(e){var r=build(true);if(r.bad){e.preventDefault();var f=r.bad[0];f.scrollIntoView({block:'center'});var fe=$('input,select',f);if(fe)fe.focus({preventScroll:true});return}send.href=r.url});
+  form.addEventListener('submit',function(e){e.preventDefault();send.click()});
   // ---------- aviso, unidades, abas, WhatsApp flutuante
   $('#announce-x').addEventListener('click',function(){$('#announce').hidden=true});
   var photos=$$('.photos img');
