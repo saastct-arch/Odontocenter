@@ -1,7 +1,3 @@
-<title>OdontoCenter Ipatinga</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
-<style>
 /* Estrutura da Maven Clinic (hero em cartão de foto, cartões de programas, painel bento, faixa fixa que se expande, números em anéis, lista com foto, faixa de logos, painel com abas, CTA claro, rodapé) com a paleta azul da OdontoCenter e animações ligadas ao scroll. */
 :root{
   --ground:#031A40;--ground-2:#062454;--deep:#0848A8;--royal:#0858B8;--sky:#2FA4D8;--electric:#19D3F3;--on-electric:#031A40;
@@ -309,222 +305,93 @@ footer{margin:12px;background:var(--ground-2);color:#fff;border-radius:var(--r-m
 .fab-pop a.opt-u svg{color:var(--wa);flex:none}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ground);z-index:60}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track,.cta::before{animation:none}*{transition-duration:.01ms!important}}
-</style>
 
-<a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="announce" id="announce"><span><b style="font-weight:500">Site proposta</b> · equipe, CRO e fotos são ilustrativos. Novo: atendemos a Rede UNNA. <a href="#convenios">Ver convênios</a></span><button type="button" id="announce-x" aria-label="Fechar aviso">×</button></div>
+/* ---------- menu do celular ---------- */
+.burger{display:none;width:44px;height:40px;border:1px solid rgba(3,26,64,.25);border-radius:var(--r-tiny);background:#fff;color:var(--ink);cursor:pointer;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:transform .35s var(--ease),background .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.menu-open .burger span{background:transparent}
+.menu-open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.menu-open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:70;background:var(--ground);padding:calc(84px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:0;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .45s;overflow-y:auto}
+.menu-open .drawer{opacity:1;visibility:visible;transform:none;transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s}
+.drawer a.dl{display:flex;justify-content:space-between;align-items:center;font:300 30px/1.2 var(--font);letter-spacing:-.03em;color:#fff;text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line-d)}
+.drawer a.dl:hover{color:var(--electric)}
+.drawer .dsub{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0 4px}
+.drawer .dsub a{font-size:14px;color:var(--dull);text-decoration:none;border:1px solid var(--line-d);border-radius:var(--r-tiny);padding:8px 12px}
+.drawer .dbot{margin-top:auto;padding-top:28px;display:grid;gap:10px}
+.drawer .dbot .btn{width:100%}
+.drawer-close{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:calc(20px + env(safe-area-inset-top,0px));width:44px;height:44px;border:1px solid var(--line-d);border-radius:var(--r-tiny);background:transparent;color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.menu-open{overflow:hidden}
+@media(max-width:980px){.burger{display:grid}.navcard .end .btn-b{padding:0 14px}}
+@media(max-width:420px){.navcard .end .btn-b{display:none}}
 
-<div class="navcard stick" id="stick" aria-hidden="true">{{navinner}}</div>
+/* ---------- horário ---------- */
+.hours{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--dull)}
+.hours::before{content:"";width:7px;height:7px;border-radius:50%;background:#3DDC84}
+.light .hours{color:var(--ink-soft)}
 
-<main id="conteudo">
-<header class="hero" id="topo">
-  <div class="hero-bg"><img class="photo-grade" src="{{img:hero}}" alt="Mulher sorrindo com dentes saudáveis" width="1800" height="2700" fetchpriority="high"></div>
-  <div class="navcard">{{navinner}}</div>
-  <div class="hero-copy">
-    <h1><span class="ln"><span style="--d:.15s">O seu sorriso</span></span><span class="ln"><span style="--d:.27s">é a sua <span class="it">marca</span></span></span><span class="ln"><span style="--d:.39s"><span class="it">registrada</span></span></span></h1>
-    <p class="sub rv" style="--d:.55s">Odontologia completa em Ipatinga, com especialistas, convênios e atendimento humanizado desde 2001.</p>
-    <div class="row rv" style="--d:.68s"><a class="btn btn-e" href="#agendar">Agendar avaliação {{ar}}</a><a class="btn btn-o" href="#especialidades">Conhecer especialidades</a></div>
-  </div>
-  <div class="meta rv" style="--d:.8s"><div><b>25 anos</b>em Ipatinga</div><div><b>2</b>unidades</div><div><b>18</b>convênios</div></div>
-</header>
+/* ---------- páginas de especialidade ---------- */
+.hero.sub-hero{height:min(calc(100svh - 70px),760px);min-height:560px}
+.back{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;font:500 14px/1 var(--font);color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:var(--r-tiny);padding:11px 14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:rgba(3,26,64,.35);transition:border-color .25s,background .25s}
+.back:hover{border-color:#fff;background:rgba(3,26,64,.6)}
+.back svg{width:16px;height:16px;transform:rotate(180deg);transition:transform .3s var(--ease)}
+.back:hover svg{transform:rotate(180deg) translateX(4px)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 13px/1.3 var(--font);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:22px}
+.hero-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--electric)}
+.hero .tagline{display:block;font:300 clamp(46px,7vw,104px)/.98 var(--font);letter-spacing:-.035em}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,96px);align-items:center}
+.about h2{font-size:clamp(34px,4.4vw,64px);margin:20px 0 24px}
+.about p{font-size:18px;font-weight:300;color:var(--dull);max-width:48ch}
+.about p+p{margin-top:16px}
+.about .ph{border-radius:var(--r-main);overflow:hidden;aspect-ratio:4/4.4;position:relative}
+.about .ph img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover}
+.signs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.sign{background:#fff;border-radius:var(--r-main);padding:26px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;border:1px solid var(--line-l)}
+.sign i{font:300 14px/1 var(--font);font-style:normal;color:var(--royal);font-variant-numeric:tabular-nums}
+.sign p{font-size:19px;line-height:1.3;letter-spacing:-.02em;color:var(--ink)}
+.journey{display:grid;grid-template-columns:repeat(var(--n,4),1fr);border-top:1px solid var(--line-d)}
+.journey li{list-style:none;padding:28px 24px 8px 0;border-right:1px solid var(--line-d);margin-right:24px;position:relative}
+.journey li:last-child{border-right:0;margin-right:0}
+.journey li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--electric)}
+.journey b{display:block;font:300 15px/1 var(--font);color:var(--electric);margin-bottom:18px;font-variant-numeric:tabular-nums}
+.journey h3{font-size:24px;margin-bottom:10px}
+.journey p{font-size:15.5px;color:var(--dull)}
+.journey-wrap{padding:0;margin:0}
+.others{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.others a{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid var(--line-d);border-radius:var(--r-tiny);text-decoration:none;color:#fff;font-size:16px;transition:border-color .25s,background .25s}
+.others a:hover{border-color:var(--electric);background:rgba(25,211,243,.08)}
+.svc-chip{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r-tiny);background:var(--ice);border:1px solid var(--ice-2);font:500 16px/1.3 var(--font)}
+.svc-chip small{display:block;font:400 13px/1.3 var(--font);color:var(--ink-soft)}
+@media(max-width:940px){.about{grid-template-columns:1fr}.signs{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr 1fr}.journey li:nth-child(2n){border-right:0;margin-right:0}}
+@media(max-width:560px){.signs,.journey{grid-template-columns:1fr}.journey li{border-right:0;margin-right:0}}
 
-<section class="sec" id="especialidades" aria-labelledby="h-esp"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow rv">Especialidades</span><h2 class="rv" id="h-esp" style="--d:.08s">Cuidado completo para cada fase do seu <span class="it">sorriso</span></h2><p class="rv" style="--d:.16s">Do check-up ao implante, toda a jornada em um só lugar, com especialistas em cada área.</p></div>
-  <div class="pc">
-    <a class="pcard rv" style="--d:0s" href="#agendar" data-service="Ortodontia (aparelho)"><img class="photo-grade" src="{{img:orto}}" alt="Paciente colocando alinhador ortodôntico transparente" loading="lazy"><span class="tag">Ortodontia</span><span class="tx"><h3>Ortodontia</h3><p>Aparelho fixo, alinhadores invisíveis e manutenção</p></span><span class="go">{{ar}}</span></a>
-    <a class="pcard rv" style="--d:.08s" href="#agendar" data-service="Implantes dentários"><img class="photo-grade" src="{{img:implante}}" alt="Dentista analisando radiografias" loading="lazy"><span class="tag">Implantes</span><span class="tx"><h3>Implantes dentários</h3><p>Reposição de dentes com planejamento por imagem</p></span><span class="go">{{ar}}</span></a>
-    <a class="pcard rv" style="--d:.16s" href="#agendar" data-service="Clareamento e estética"><img class="photo-grade" src="{{img:estetica}}" alt="Exame do sorriso de um paciente" loading="lazy"><span class="tag">Estética</span><span class="tx"><h3>Estética e clareamento</h3><p>Cor, forma e harmonia para o seu sorriso</p></span><span class="go">{{ar}}</span></a>
-    <a class="pcard rv" style="--d:.24s" href="#agendar" data-service="Bruxismo"><img class="photo-grade" src="{{img:bruxismo}}" alt="Mulher com expressão tranquila" loading="lazy"><span class="tag">Bruxismo</span><span class="tx"><h3>Bruxismo</h3><p>Alívio do ranger e do apertar dos dentes</p></span><span class="go">{{ar}}</span></a>
-  </div>
-  <div class="lc">
-    <a class="lcard rv" style="--d:0s" href="#agendar" data-service="Dentística e prótese"><span class="th"><img class="photo-grade" src="{{img:protese}}" alt="" loading="lazy"></span><span><h3>Dentística e prótese</h3><p>Restaurações e próteses sob medida</p></span></a>
-    <a class="lcard rv" style="--d:.06s" href="#agendar" data-service="Periodontia (gengiva)"><span class="th"><img class="photo-grade" src="{{img:perio}}" alt="" loading="lazy"></span><span><h3>Periodontia</h3><p>Saúde da gengiva e prevenção</p></span></a>
-    <a class="lcard rv" style="--d:.12s" href="#agendar" data-service="Endodontia (canal)"><span class="th"><img class="photo-grade" src="{{img:endo}}" alt="" loading="lazy"></span><span><h3>Endodontia</h3><p>Tratamento de canal</p></span></a>
-    <a class="lcard rv" style="--d:.18s" href="#agendar" data-service="Cirurgias"><span class="th"><img class="photo-grade" src="{{img:cirurgia}}" alt="" loading="lazy"></span><span><h3>Cirurgias</h3><p>Extrações e procedimentos cirúrgicos</p></span></a>
-  </div>
-</div></section>
+/* ---------- política de privacidade ---------- */
+.prose{max-width:760px;margin:0 auto;color:var(--ink)}
+.prose h2{font-size:clamp(26px,2.6vw,34px);margin:48px 0 14px}
+.prose p,.prose li{font-size:17px;line-height:1.7;color:var(--ink-soft)}
+.prose p+p{margin-top:14px}
+.prose ul{padding-left:20px;margin:12px 0}
+.prose a{color:var(--royal)}
+.doc-hero{margin:12px;border-radius:var(--r-med);background:radial-gradient(100% 120% at 80% 0%,#0A63CC 0%,var(--deep) 45%,var(--ground-2) 100%);padding:clamp(120px,14vw,180px) 0 clamp(48px,6vw,80px);position:relative}
+.doc-hero h1{font-size:clamp(40px,5.6vw,84px);margin-top:20px}
+.doc-hero p{margin-top:18px;color:rgba(255,255,255,.85);font-size:17px}
+.doc-body{margin:0 12px;background:var(--ice);border-radius:var(--r-med);padding:clamp(40px,6vw,96px) clamp(20px,4vw,64px)}
 
-<section class="panel light" aria-labelledby="h-bento">
-  <div class="panel-head"><div><span class="eyebrow rv">Por que a OdontoCenter</span><h2 class="rv" id="h-bento" style="--d:.08s;margin-top:20px">Uma clínica inteira dedicada ao <span class="it">seu sorriso</span></h2></div><p class="intro rv" style="--d:.16s">Especialistas, estrutura completa e convênios em duas unidades. Tudo para você cuidar da saúde bucal com tranquilidade, perto de casa.</p></div>
-  <div class="bento">
-    <div class="tile ph t1 rv-img rv-ph"><img class="bg photo-grade" data-par src="{{img:clinica2}}" alt="Dentista atendendo paciente em consultório" loading="lazy"><div class="bot"><h3>Atendimento humanizado, do primeiro contato ao pós-tratamento</h3><p>Cada etapa explicada antes de começar, no seu tempo.</p></div></div>
-    <div class="tile t2 rv" style="--d:.08s"><h3>8 especialidades em um só lugar</h3><ul><li>Ortodontia</li><li>Implantes</li><li>Estética</li><li>Bruxismo</li><li>Prótese</li><li>Periodontia</li><li>Endodontia</li><li>Cirurgias</li></ul></div>
-    <div class="tile ph rv-img" style="--d:.16s"><img class="bg photo-grade" data-par src="{{img:implante}}" alt="" loading="lazy"><h3>Diagnóstico com tecnologia</h3></div>
-    <div class="tile t3 rv" style="--d:.1s"><h3>Equipe especializada em cada área</h3><div class="avs"><img src="{{img:d1}}" alt=""><img src="{{img:d2}}" alt=""><img src="{{img:d3}}" alt=""><img src="{{img:d4}}" alt=""></div><small>Imagens ilustrativas</small></div>
-    <div class="tile t4 rv" style="--d:.18s"><h3>Convênios e atendimento particular</h3><div class="big">18</div><p style="opacity:1;color:var(--ink-soft)">convênios e planos aceitos, incluindo a Rede UNNA</p></div>
-  </div>
-</section>
+/* ---------- aviso de cookies ---------- */
+.cookie{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;width:min(440px,calc(100vw - 112px));background:#fff;color:var(--ink);border-radius:var(--r-main);box-shadow:0 20px 50px rgba(3,26,64,.35);padding:20px;display:none}
+.cookie.show{display:block;animation:pop .45s var(--ease)}
+.cookie h2{font:500 16px/1.3 var(--font);letter-spacing:-.01em;margin-bottom:6px}
+.cookie p{font-size:14px;line-height:1.5;color:var(--ink-soft)}
+.cookie p a{color:var(--royal)}
+.cookie .row{margin-top:14px;gap:8px}
+.cookie .btn{min-height:40px;font-size:15px;padding:0 16px}
+@media(max-width:560px){.cookie{width:calc(100vw - 32px);bottom:calc(92px + env(safe-area-inset-bottom,0px))}}
 
-<section class="pin" id="estrutura" aria-labelledby="h-pin">
-  <div class="pin-in">
-    <div class="pin-media"><img class="photo-grade" src="{{img:clinica}}" alt="Consultório odontológico moderno e iluminado" loading="lazy"></div>
-    <div class="pin-copy"><span class="eyebrow">Estrutura</span><h2 id="h-pin">Consultórios preparados para cuidar de <span class="it">você</span></h2><p>Ambientes confortáveis e equipamentos modernos nas unidades Canaã e Centro, para tratamentos seguros e precisos.</p></div>
-  </div>
-</section>
-
-<section class="stats light" aria-labelledby="h-st">
-  <div class="sec-head wrap"><span class="eyebrow rv">Nossa história</span><h2 class="rv" id="h-st" style="--d:.08s">25 anos cuidando de sorrisos em <span class="it">Ipatinga</span></h2><p class="rv" style="--d:.16s">Desde 2001, a OdontoCenter acompanha gerações de famílias da cidade.</p></div>
-  <div class="rings">
-    <div class="ring rv" style="--d:0s"><div class="c"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="tr" cx="100" cy="100" r="95"/><circle class="pr" cx="100" cy="100" r="95" style="--off:0"/></svg><div class="in-t"><strong data-count="25">25</strong><span>anos de <b>história</b> em Ipatinga</span></div></div></div>
-    <div class="ring rv" style="--d:.1s"><div class="c"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="tr" cx="100" cy="100" r="95"/><circle class="pr" cx="100" cy="100" r="95" style="--off:298"/></svg><div class="in-t"><strong data-count="2">2</strong><span><b>unidades</b>: Canaã e Centro</span></div></div></div>
-    <div class="ring rv" style="--d:.2s"><div class="c"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="tr" cx="100" cy="100" r="95"/><circle class="pr" cx="100" cy="100" r="95" style="--off:120"/></svg><div class="in-t"><strong data-count="8">8</strong><span><b>especialidades</b> odontológicas</span></div></div></div>
-    <div class="ring rv" style="--d:.3s"><div class="c"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="tr" cx="100" cy="100" r="95"/><circle class="pr" cx="100" cy="100" r="95" style="--off:60"/></svg><div class="in-t"><strong data-count="18">18</strong><span><b>convênios e planos</b> aceitos</span></div></div></div>
-  </div>
-</section>
-
-<section class="sec" id="unidades" aria-labelledby="h-un"><div class="wrap"><div class="split">
-  <div>
-    <span class="eyebrow rv">Unidades</span>
-    <h2 class="rv" id="h-un" style="--d:.08s">Perto de você, em dois endereços de <span class="it">Ipatinga</span></h2>
-    <p class="intro rv" style="--d:.16s">As duas unidades atendem por convênio e particular. Escolha a mais próxima e agende.</p>
-    <div class="list rv" style="--d:.22s">
-      <div class="item open" data-photo="0"><button type="button" aria-expanded="true">Unidade Canaã {{ar}}</button><div class="det"><div><div class="inner"><p>Rua dos Profetas, 210 · Ipatinga-MG</p><p>Telefone <a href="tel:+553138277739">(31) 3827-7739</a> · WhatsApp <a href="https://wa.me/5531996252944" target="_blank" rel="noopener">(31) 99625-2944</a></p><div class="row"><a class="btn btn-e btn-sm" data-unit="canaa" href="#agendar">Agendar nesta unidade</a><a class="btn btn-o btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Profetas+210+Ipatinga+MG" target="_blank" rel="noopener">Ver como chegar</a></div></div></div></div></div>
-      <div class="item" data-photo="1"><button type="button" aria-expanded="false">Unidade Centro {{ar}}</button><div class="det"><div><div class="inner"><p>Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade · Ipatinga-MG</p><p>Telefone <a href="tel:+553138251053">(31) 3825-1053</a> · WhatsApp <a href="https://wa.me/5531975103555" target="_blank" rel="noopener">(31) 97510-3555</a></p><div class="row"><a class="btn btn-e btn-sm" data-unit="centro" href="#agendar">Agendar nesta unidade</a><a class="btn btn-o btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+Juiz+de+Fora+60+Ipatinga+MG" target="_blank" rel="noopener">Ver como chegar</a></div></div></div></div></div>
-      <div class="item"><a href="#convenios">Convênios aceitos {{ar}}</a></div>
-      <div class="item"><a href="#duvidas">Perguntas frequentes {{ar}}</a></div>
-    </div>
-    <a class="btn btn-e rv" href="#agendar">Agendar avaliação {{ar}}</a>
-  </div>
-  <div class="photos rv-img"><img class="photo-grade on" src="{{img:recepcao}}" alt="Recepção da clínica (imagem ilustrativa)" loading="lazy"><img class="photo-grade" src="{{img:consulta}}" alt="Atendimento em consultório (imagem ilustrativa)" loading="lazy"><span class="cap">Imagem ilustrativa</span></div>
-</div></div></section>
-
-<section class="trust" id="convenios" aria-labelledby="h-cv">
-  <div class="wrap"><p class="eyebrow" id="h-cv">Convênios aceitos</p></div>
-  <div class="marquee"><div class="track">{{logos}}{{logos_dup}}</div></div>
-  <div class="wrap"><p class="unna rv"><b>Rede UNNA</b><span class="new">NOVO</span>Bradesco, Unimed, Riachuelo e OdontoPrev. E mais: Brasil Dental, Rede Dental, Prívian, Odontoserv, SEPAO, Prontodente, IBI e DM Odonto. Também atendemos particular; consulte a cobertura de cada plano com a recepção.</p></div>
-</section>
-
-<section class="team" id="equipe" aria-labelledby="h-eq">
-  <div class="wrap">
-    <span class="eyebrow rv">Equipe</span>
-    <h2 class="rv" id="h-eq" style="--d:.08s">Especialistas que cuidam do seu <span class="it">sorriso</span></h2>
-    <p class="sub rv" style="--d:.16s">Cada profissional informa o CRO e a especialidade registrada.</p>
-    <a class="btn btn-e rv" style="--d:.22s" href="#agendar">Agendar com a equipe {{ar}}</a>
-    <div><span class="fict" role="note">Dados e fotos fictícios, exemplo da proposta</span></div>
-  </div>
-  <div class="tabs" role="tablist" aria-label="Dentistas">{{tabs}}</div>
-  <div class="tcards">{{tcards}}</div>
-</section>
-
-<section class="sec" id="duvidas" aria-labelledby="h-fq"><div class="wrap"><div class="faqs">
-  <div><span class="eyebrow rv">Dúvidas</span><h2 class="rv" id="h-fq" style="--d:.08s">Perguntas <span class="it">frequentes</span></h2><p class="intro rv" style="--d:.16s">Não achou o que procurava? Fale com a recepção pelo WhatsApp.</p></div>
-  <div class="rv" style="--d:.1s">{{faq_html}}</div>
-</div></div></section>
-
-<section class="cta light" id="agendar" aria-labelledby="h-ag"><div class="wrap"><div class="cta-grid">
-  <div>
-    <span class="eyebrow rv">Agendamento</span>
-    <h2 class="rv" id="h-ag" style="--d:.08s">Agende sua <span class="it">avaliação</span></h2>
-    <p class="intro rv" style="--d:.16s">Preencha em menos de um minuto. Ao enviar, abrimos o WhatsApp da unidade com a mensagem pronta.</p>
-    <ol class="steps rv" style="--d:.22s"><li><span>01</span>Escolha a unidade, o serviço e o horário.</li><li><span>02</span>Informe se o atendimento é por convênio ou particular.</li><li><span>03</span>Envie pelo WhatsApp e a recepção confirma seu horário.</li></ol>
-  </div>
-  <form class="card rv" style="--d:.12s" id="form-agenda" novalidate>
-    <fieldset id="f-unit"><legend>1. Qual unidade?</legend>
-      <div class="choices units"><label><input type="radio" name="unidade" value="canaa"><span class="c">Canaã<small>Rua dos Profetas, 210</small></span></label><label><input type="radio" name="unidade" value="centro"><span class="c">Centro<small>Rua Juiz de Fora, 60, sala 102</small></span></label></div><p class="err">Escolha uma unidade.</p></fieldset>
-    <div id="f-serv"><label class="lb" for="servico">2. Qual serviço você procura?</label><select id="servico" name="servico" required><option value="">Selecione</option>{{svc_opts}}</select><p class="err">Escolha um serviço.</p></div>
-    <fieldset id="f-hor"><legend>3. Horário preferencial</legend>
-      <div class="choices"><label><input type="radio" name="horario" value="Manhã"><span class="c">Manhã</span></label><label><input type="radio" name="horario" value="Tarde"><span class="c">Tarde</span></label><label><input type="radio" name="horario" value="Sem preferência"><span class="c">Sem preferência</span></label></div><p class="err">Escolha um horário.</p></fieldset>
-    <fieldset id="f-tipo"><legend>4. Como será o atendimento?</legend>
-      <div class="choices"><label><input type="radio" name="tipo" value="Convênio"><span class="c">Convênio</span></label><label><input type="radio" name="tipo" value="Particular"><span class="c">Particular</span></label></div><p class="err">Informe se é convênio ou particular.</p>
-      <div class="conv" id="conv-box" hidden style="margin-top:14px"><label class="lb" for="convenio">Qual convênio?</label><select id="convenio" name="convenio"><option value="">Selecione</option>{{conv_opts}}</select><p class="err">Escolha o convênio.</p></div></fieldset>
-    <div id="f-nome"><label class="lb" for="nome">5. Nome do paciente</label><input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Nome completo"><p class="err">Informe o nome do paciente.</p></div>
-    <div><label class="lb" for="desc">6. Conte o que você precisa <span class="opt">(opcional)</span></label><textarea id="desc" name="desc" placeholder="Ex.: dor no dente, orçamento de aparelho, consulta para meu filho de 8 anos"></textarea></div>
-    <div class="submit"><a class="btn btn-wa" id="send" href="#agendar" target="_blank" rel="noopener" role="button">{{wa}} Enviar para o WhatsApp</a><p>Abre a conversa com a unidade escolhida, com a mensagem pronta. Nada é enviado até você tocar em enviar no WhatsApp.</p></div>
-  </form>
-</div></div></section>
-</main>
-
-<footer>
-  <div class="fcols">
-    <div><h4>Especialidades</h4><a href="#especialidades">Ortodontia</a><a href="#especialidades">Implantes dentários</a><a href="#especialidades">Estética e clareamento</a><a href="#especialidades">Bruxismo</a><a href="#especialidades">Dentística e prótese</a><a href="#especialidades">Periodontia</a><a href="#especialidades">Endodontia</a><a href="#especialidades">Cirurgias</a></div>
-    <div><h4>Unidades</h4><p>Canaã<br><span style="color:var(--dull)">Rua dos Profetas, 210<br>(31) 3827-7739</span></p><p style="margin-top:14px">Centro<br><span style="color:var(--dull)">Rua Juiz de Fora, 60, sala 102<br>Ed. Sandra Andrade<br>(31) 3825-1053</span></p></div>
-    <div><h4>OdontoCenter</h4><a href="#equipe">Equipe</a><a href="#convenios">Convênios</a><a href="#estrutura">Estrutura</a><a href="#duvidas">Perguntas frequentes</a><a href="#agendar">Agendar avaliação</a><a href="https://www.instagram.com/odontocenter.ipa/" target="_blank" rel="noopener">Instagram</a></div>
-    <div class="fcard"><p>Fale com a recepção pelo WhatsApp</p><a class="btn btn-wa" data-wa="canaa" href="#agendar">{{wa}} Unidade Canaã</a><a class="btn btn-wa" data-wa="centro" href="#agendar">{{wa}} Unidade Centro</a></div>
-  </div>
-  <div class="fbig" aria-hidden="true">{{logo_foot}}</div>
-  <div class="legal"><span>© 2026 OdontoCenter · Centro Odontológico Especializado Ltda · CNPJ 04.598.376/0001-09</span><span><b>Responsável técnico:</b> Dr. Rafael Moreira · CRO-MG 00000 (dado fictício da proposta)</span><span>Política de privacidade · Cookies</span></div>
-</footer>
-
-<div class="fab" id="fab">
-  <div class="fab-pop" id="fab-pop" role="dialog" aria-label="Escolha a unidade para conversar no WhatsApp"><h2>Falar no WhatsApp</h2><p>Para qual unidade você quer mandar mensagem?</p>
-    <a class="opt-u" data-fab="canaa" href="#" target="_blank" rel="noopener">{{wa}}<span>Unidade Canaã<small>Rua dos Profetas, 210</small></span></a>
-    <a class="opt-u" data-fab="centro" href="#" target="_blank" rel="noopener">{{wa}}<span>Unidade Centro<small>Rua Juiz de Fora, 60, sala 102</small></span></a></div>
-  <button class="fab-btn" id="fab-btn" type="button" aria-label="Falar no WhatsApp: escolher unidade" aria-expanded="false" aria-controls="fab-pop">{{wa}}</button>
-</div>
-
-<script type="application/ld+json">{{ld}}</script>
-<script>
-(function(){
-  var root=document.documentElement,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-  var vh=function(){return window.innerHeight||800};
-  // ---------- animações
-  if(!reduce&&'IntersectionObserver' in window){
-    root.classList.add('anim');
-    var els=$$('.rv,.rv-img,.ring');
-    els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<vh()*0.98&&r.bottom>0)el.classList.add('in')});
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('ring'))count(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.12});
-    els.forEach(function(el){if(!el.classList.contains('in'))io.observe(el)});
-    requestAnimationFrame(function(){requestAnimationFrame(function(){$('.hero').classList.add('ready')})});
-  }else{$('.hero').classList.add('ready')}
-  function count(ring){var s=$('[data-count]',ring);if(!s)return;var to=+s.getAttribute('data-count'),t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-p,3);s.textContent=Math.round(to*e);if(p<1)requestAnimationFrame(step)}s.textContent='0';requestAnimationFrame(step)}
-  // scroll: faixa fixa, parallax, menu fixo
-  var pin=$('.pin'),media=$('.pin-media'),pcopy=$('.pin-copy'),stick=$('#stick'),hero=$('.hero'),pars=$$('[data-par]'),ticking=false;
-  function onScroll(){ticking=false;var h=vh();
-    if(root.classList.contains('anim')){
-      var r=pin.getBoundingClientRect(),tot=r.height-h,p=Math.min(1,Math.max(0,-r.top/(tot||1))),q=Math.min(1,p/0.6);
-      var e=1-Math.pow(1-q,2);
-      media.style.setProperty('--iy',(14*(1-e))+'%');media.style.setProperty('--ix',(18*(1-e))+'%');media.style.setProperty('--ir',(28*(1-e))+'px');
-      media.style.setProperty('--sc',(1.18-0.18*e).toFixed(3));media.style.setProperty('--ov',(0.15+0.45*e).toFixed(3));
-      pcopy.style.setProperty('--op',Math.min(1,Math.max(0,(p-0.35)/0.3)).toFixed(3));
-      pars.forEach(function(img){var b=img.parentNode.getBoundingClientRect();if(b.bottom<0||b.top>h)return;var k=((b.top+b.height/2)-h/2)/h;img.style.transform='translate3d(0,'+(k*-6).toFixed(2)+'%,0)'});
-    }
-    var show=hero.getBoundingClientRect().bottom<0;stick.classList.toggle('show',show);stick.setAttribute('aria-hidden',show?'false':'true');
-    $$('a,button',stick).forEach(function(x){x.tabIndex=show?0:-1});
-  }
-  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
-  window.addEventListener('resize',onScroll);onScroll();
-  // ---------- formulário → WhatsApp
-  var UNITS={canaa:{nome:'Canaã',num:'5531996252944'},centro:{nome:'Centro',num:'5531975103555'}};
-  function wa(u,text){return 'https://wa.me/'+UNITS[u].num+'?text='+encodeURIComponent(text)}
-  var form=$('#form-agenda');
-  function clear(el){el&&el.classList.remove('invalid')}
-  function setUnit(u){var r=$('input[name=unidade][value='+u+']');if(r){r.checked=true;clear($('#f-unit'))}}
-  function goForm(o){o=o||{};if(o.unit)setUnit(o.unit);if(o.service){var s=$('#servico');for(var i=0;i<s.options.length;i++){if(s.options[i].value===o.service){s.value=o.service;clear($('#f-serv'))}}}}
-  $$('[data-service]').forEach(function(a){a.addEventListener('click',function(){goForm({service:a.getAttribute('data-service'),unit:a.getAttribute('data-unit')})})});
-  $$('a[data-unit]').forEach(function(a){a.addEventListener('click',function(){goForm({unit:a.getAttribute('data-unit')})})});
-  $$('[data-wa]').forEach(function(a){var u=a.getAttribute('data-wa');a.href=wa(u,'Olá! Vim pelo site da OdontoCenter e gostaria de falar com a unidade '+UNITS[u].nome+'.');a.target='_blank';a.rel='noopener'});
-  $$('input[name=tipo]').forEach(function(r){r.addEventListener('change',function(){$('#conv-box').hidden=(r.value!=='Convênio'||!r.checked);clear($('#f-tipo'))})});
-  $$('input,select',form).forEach(function(i){i.addEventListener('change',function(){clear(i.closest('fieldset,#f-serv,#f-nome,.conv'))});i.addEventListener('input',function(){clear(i.closest('#f-nome'))})});
-  function val(n){var c=$('input[name='+n+']:checked');return c?c.value:''}
-  // O botão é um link real: o navegador abre o WhatsApp no primeiro clique, sem janela bloqueada nem segundo botão.
-  var send=$('#send');
-  function build(mark){
-    var unit=val('unidade'),serv=$('#servico').value,hor=val('horario'),tipo=val('tipo'),conv=$('#convenio').value,nome=$('#nome').value.trim(),desc=$('#desc').value.trim(),bad=[];
-    function chk(ok,el){if(!ok){bad.push(el);if(mark)el.classList.add('invalid')}else clear(el)}
-    chk(!!unit,$('#f-unit'));chk(!!serv,$('#f-serv'));chk(!!hor,$('#f-hor'));chk(!!tipo,$('#f-tipo'));
-    chk(tipo!=='Convênio'||!!conv,$('.conv'));if(mark&&tipo==='Convênio'&&!conv){$('#f-tipo').classList.add('invalid')}
-    chk(nome.length>1,$('#f-nome'));
-    if(bad.length)return {bad:bad};
-    var tx='Olá! Vim pelo site da OdontoCenter e gostaria de agendar.\n\n*Unidade:* '+UNITS[unit].nome+'\n*Serviço:* '+serv+'\n*Horário preferencial:* '+hor+'\n*Atendimento:* '+(tipo==='Convênio'?'Convênio ('+conv+')':'Particular')+'\n*Paciente:* '+nome+(desc?'\n*Observações:* '+desc:'')+'\n\nPodem confirmar um horário? Obrigado!';
-    return {url:wa(unit,tx)};
-  }
-  function sync(){var r=build(false);send.href=r.url||'#agendar'}
-  form.addEventListener('input',sync);form.addEventListener('change',sync);
-  send.addEventListener('click',function(e){var r=build(true);if(r.bad){e.preventDefault();var f=r.bad[0];f.scrollIntoView({block:'center'});var fe=$('input,select',f);if(fe)fe.focus({preventScroll:true});return}send.href=r.url});
-  form.addEventListener('submit',function(e){e.preventDefault();send.click()});
-  // ---------- aviso, unidades, abas, WhatsApp flutuante
-  $('#announce-x').addEventListener('click',function(){$('#announce').hidden=true});
-  var photos=$$('.photos img');
-  $$('.item > button').forEach(function(b){b.addEventListener('click',function(){var it=b.parentNode,o=!it.classList.contains('open');$$('.item.open').forEach(function(x){x.classList.remove('open');$('button',x).setAttribute('aria-expanded','false')});if(o){it.classList.add('open');b.setAttribute('aria-expanded','true');var i=+it.getAttribute('data-photo');photos.forEach(function(p,k){p.classList.toggle('on',k===i)})}})});
-  var tabs=$$('.tab');
-  function selTab(t){tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');x.tabIndex=x===t?0:-1});$$('.tcard').forEach(function(c){c.hidden=c.id!==t.getAttribute('aria-controls')})}
-  tabs.forEach(function(t,i){t.addEventListener('click',function(){selTab(t)});t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:-1;if(n>=0){n=(n+tabs.length)%tabs.length;tabs[n].focus();selTab(tabs[n])}})});
-  var fab=$('#fab-btn'),pop=$('#fab-pop');
-  function toggle(o){pop.classList.toggle('open',o);fab.setAttribute('aria-expanded',o?'true':'false')}
-  $$('[data-fab]').forEach(function(a){var u=a.getAttribute('data-fab');a.href=wa(u,'Olá! Vim pelo site da OdontoCenter e gostaria de falar com a unidade '+UNITS[u].nome+'.');a.addEventListener('click',function(){toggle(false)})});
-  fab.addEventListener('click',function(){toggle(!pop.classList.contains('open'))});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&pop.classList.contains('open')){toggle(false);fab.focus()}});
-  document.addEventListener('click',function(e){if(!$('#fab').contains(e.target))toggle(false)});
-})();
-</script>
+/* ---------- faixa fixa mais curta no celular ---------- */
+@media(max-width:760px){.pin{height:160vh}.pin-in{height:100svh}}
+.hero h1.hero-eyebrow{font:500 13px/1.3 var(--font);letter-spacing:.12em;margin-bottom:22px}
+.ar{width:16px;height:16px;flex:none}
+.drawer a.dl .ar{width:22px;height:22px;color:var(--electric)}
+.back{display:flex;width:fit-content}

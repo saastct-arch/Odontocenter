@@ -3,334 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Clínica odontológica em Ipatinga há 25 anos: ortodontia, implantes, estética e mais. Duas unidades, Canaã e Centro. Agende pelo WhatsApp.">
-<title>Dentista em Ipatinga | OdontoCenter, desde 2001</title>
+<title>Dentista em Ipatinga | OdontoCenter, clínica odontológica desde 2001</title>
+<meta name="description" content="Clínica odontológica em Ipatinga há 25 anos: ortodontia, implantes, estética, bruxismo e mais. Unidades Canaã e Centro, segunda a sexta das 8h às 18h. Agende pelo WhatsApp.">
+<link rel="canonical" href="https://odontocenter.com.br/">
+<meta property="og:title" content="Dentista em Ipatinga | OdontoCenter, clínica odontológica desde 2001">
+<meta property="og:description" content="Clínica odontológica em Ipatinga há 25 anos: ortodontia, implantes, estética, bruxismo e mais. Unidades Canaã e Centro, segunda a sexta das 8h às 18h. Agende pelo WhatsApp.">
+<meta property="og:locale" content="pt_BR">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
-<style>
-/* Estrutura da Maven Clinic (hero em cartão de foto, cartões de programas, painel bento, faixa fixa que se expande, números em anéis, lista com foto, faixa de logos, painel com abas, CTA claro, rodapé) com a paleta azul da OdontoCenter e animações ligadas ao scroll. */
-:root{
-  --ground:#031A40;--ground-2:#062454;--deep:#0848A8;--royal:#0858B8;--sky:#2FA4D8;--electric:#19D3F3;--on-electric:#031A40;
-  --ice:#EAF3FA;--ice-2:#D6E7F4;--ink:#031A40;--ink-soft:#3D5A7E;--dull:#9FB8D3;--line-d:rgba(255,255,255,.16);--line-l:rgba(3,26,64,.12);
-  --danger:#B3261E;--wa:#1B8F4B;--wa-hover:#157a3f;
-  --font:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;--serif:"Instrument Serif","Times New Roman",serif;
-  --r-tiny:4px;--r-main:14px;--r-med:28px;--gap:14px;--margin:3rem;--ease:cubic-bezier(.2,.7,.15,1);
-}
-@media(max-width:760px){:root{--margin:1.25rem;--r-med:20px}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--ground);color:#fff;font:400 16px/1.55 var(--font);letter-spacing:-.015em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img,svg{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3,p{margin:0}
-h1,h2,h3{font-weight:300;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
-.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.015em}
-.wrap{max-width:92rem;margin:0 auto;padding-left:max(var(--margin),env(safe-area-inset-left,0px));padding-right:max(var(--margin),env(safe-area-inset-right,0px))}
-:focus-visible{outline:2px solid var(--electric);outline-offset:3px}
-.light :focus-visible,form :focus-visible{outline-color:var(--royal)}
-.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:8px;z-index:100;background:#fff;color:var(--ink);padding:8px 12px;border-radius:var(--r-tiny)}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 12px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--dull)}
-.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--electric)}
-.light .eyebrow{color:var(--ink-soft)}.light .eyebrow::before{background:var(--royal)}
-.photo-grade{filter:saturate(.92) contrast(1.03)}
-
-/* botões */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:var(--r-tiny);border:1px solid transparent;font:500 17px/1 var(--font);letter-spacing:-.01em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--ease)}
-.btn .ar{width:16px;height:16px;transition:transform .3s var(--ease)}.btn:hover .ar{transform:translateX(4px)}
-.btn-e{background:var(--electric);color:var(--on-electric)}.btn-e:hover{background:#7BE6F8}
-.btn-o{color:#fff;border-color:rgba(255,255,255,.55)}.btn-o:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.btn-b{background:var(--royal);color:#fff}.btn-b:hover{background:var(--deep)}
-.btn-ob{color:var(--ink);border-color:rgba(3,26,64,.3)}.btn-ob:hover{border-color:var(--ink)}
-.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:var(--wa-hover)}
-.btn-sm{min-height:40px;padding:0 18px;font-size:15px}
-.row{display:flex;flex-wrap:wrap;gap:12px}
-
-/* animações */
-.anim .rv{opacity:0;transform:translate3d(0,36px,0);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
-.anim .rv.in{opacity:1;transform:none}
-.anim .rv-img{clip-path:inset(12% 0 0 0 round var(--r-main));transition:clip-path 1.3s var(--ease);transition-delay:var(--d,0s)}
-.anim .rv-img.in{clip-path:inset(0 0 0 0 round var(--r-main))}
-.anim .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
-.anim .ln>span{display:inline-block;transform:translate3d(0,105%,0);transition:transform 1.2s var(--ease);transition-delay:var(--d,0s)}
-.anim .ready .ln>span{transform:none}
-
-/* barra de aviso */
-.announce{position:relative;z-index:5;background:var(--ice);color:var(--ink);text-align:center;font:400 14.5px/1.4 var(--font);padding:11px 56px}
-.announce a{color:var(--ink)}
-.announce button{position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);width:32px;height:32px;border:0;background:transparent;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
-.announce[hidden]{display:none}
-
-/* menu */
-.navcard{display:flex;align-items:center;gap:28px;background:#fff;color:var(--ink);border-radius:var(--r-tiny);padding:10px 12px 10px 18px;box-shadow:0 10px 40px rgba(3,26,64,.12)}
-.navcard .logo{height:24px;width:auto;color:var(--sky)}
-.navcard nav{display:flex;gap:30px;margin-left:16px;font:500 15.5px/1 var(--font)}
-.navcard nav a{text-decoration:none;padding:10px 0;position:relative}
-.navcard nav a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
-.navcard nav a:hover::after{transform:scaleX(1)}
-.navcard .end{margin-left:auto;display:flex;gap:10px}
-.navcard .btn{min-height:40px;font-size:15px;padding:0 18px}
-.hero .navcard{position:absolute;z-index:4;left:50%;top:14px;transform:translateX(-50%);width:min(1180px,calc(100% - 28px))}
-.stick{position:fixed;z-index:40;left:50%;top:calc(10px + env(safe-area-inset-top,0px));width:min(1180px,calc(100% - 24px));transform:translate(-50%,-140%);transition:transform .6s var(--ease)}
-.stick.show{transform:translate(-50%,0)}
-@media(max-width:980px){.navcard nav,.navcard .tel{display:none}.navcard{gap:12px}}
-
-/* hero */
-.hero{position:relative;margin:12px;border-radius:var(--r-med);overflow:hidden;height:min(calc(100svh - 70px),900px);min-height:620px;background:var(--ground-2);isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-1}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:78% 22%;transform:scale(1.12);transition:transform 2.4s var(--ease)}
-.ready .hero-bg img,html:not(.anim) .hero-bg img{transform:scale(1)}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,26,64,.86) 0%,rgba(3,26,64,.55) 38%,rgba(3,26,64,0) 66%),linear-gradient(0deg,rgba(3,26,64,.5) 0%,rgba(3,26,64,0) 35%)}
-.hero-copy{position:absolute;left:clamp(24px,4.5vw,64px);bottom:clamp(36px,7vw,96px);right:24px;max-width:860px}
-.hero h1{font-size:clamp(46px,7vw,104px);line-height:.98}
-.hero .sub{font-size:clamp(18px,1.7vw,23px);font-weight:300;margin:26px 0 34px;max-width:34ch;color:rgba(255,255,255,.9)}
-.hero .meta{position:absolute;right:clamp(24px,4vw,56px);bottom:clamp(36px,7vw,96px);display:flex;gap:28px;font-size:14px;color:rgba(255,255,255,.85)}
-.hero .meta b{display:block;font:300 34px/1 var(--font);color:#fff;letter-spacing:-.03em;margin-bottom:6px}
-@media(max-width:980px){.hero .meta{display:none}.hero-bg img{object-position:70% 20%}.hero-bg::after{background:linear-gradient(0deg,rgba(3,26,64,.92) 18%,rgba(3,26,64,.25) 70%)}}
-
-/* programas */
-.sec{padding-block:clamp(72px,9vw,140px)}
-.sec-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;margin-bottom:clamp(36px,5vw,64px)}
-.sec-head h2{font-size:clamp(34px,4.6vw,68px);max-width:18ch}
-.sec-head p{max-width:46ch;color:var(--dull);font-size:18px;font-weight:300}
-.light .sec-head p{color:var(--ink-soft)}
-.pc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
-.pcard{position:relative;display:block;aspect-ratio:3/4.3;border-radius:var(--r-main);overflow:hidden;text-decoration:none;color:#fff;background:var(--ground-2);isolation:isolate}
-.pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.2s var(--ease);z-index:-2}
-.pcard:hover img{transform:scale(1.08)}
-.pcard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(3,26,64,.9) 0%,rgba(3,26,64,.25) 45%,rgba(3,26,64,0) 70%)}
-.pcard .tag{position:absolute;left:16px;top:16px;font:500 12px/1 var(--font);letter-spacing:.12em;text-transform:uppercase;background:rgba(3,26,64,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 10px;border-radius:var(--r-tiny)}
-.pcard .tx{position:absolute;left:20px;right:20px;bottom:20px}
-.pcard h3{font-size:clamp(24px,2.2vw,32px)}
-.pcard p{font-size:14px;color:rgba(255,255,255,.82);margin-top:8px;max-width:28ch}
-.pcard .go{position:absolute;right:18px;bottom:22px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:background .3s,border-color .3s}
-.pcard:hover .go{background:var(--electric);border-color:var(--electric);color:var(--ink)}
-.pcard .go svg{width:16px;height:16px}
-.lc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-top:var(--gap)}
-.lcard{position:relative;display:flex;align-items:center;gap:16px;padding:12px;border-radius:var(--r-main);background:rgba(255,255,255,.05);border:1px solid var(--line-d);text-decoration:none;color:#fff;transition:background .3s,border-color .3s}
-.lcard:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.3)}
-.lcard .th{flex:none;width:84px;height:84px;border-radius:10px;overflow:hidden}
-.lcard .th img{width:100%;height:100%;object-fit:cover}
-.lcard h3{font-size:20px;letter-spacing:-.02em}
-.lcard p{font-size:13.5px;color:var(--dull);margin-top:4px}
-@media(max-width:1080px){.pc,.lc{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.pc,.lc{grid-template-columns:1fr}.pcard{aspect-ratio:4/4.4}}
-
-/* painel claro bento */
-.light{color:var(--ink)}
-.panel{margin:0 12px;background:var(--ice);border-radius:var(--r-med);padding:clamp(28px,5vw,80px) clamp(20px,4vw,64px)}
-.panel-head{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end;margin-bottom:clamp(36px,5vw,72px)}
-.panel h2{font-size:clamp(38px,5.4vw,84px);line-height:.98}
-.panel .intro{font-size:17px;max-width:34ch;color:var(--ink-soft);justify-self:end}
-.bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:300px 260px;gap:var(--gap)}
-.tile{position:relative;border-radius:var(--r-main);overflow:hidden;padding:24px;color:#fff;isolation:isolate;min-width:0}
-.tile h3{font-size:clamp(21px,1.8vw,27px);line-height:1.12;max-width:20ch}
-.tile p{font-size:14.5px;margin-top:10px;opacity:.9;max-width:34ch}
-.tile .bg{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;z-index:-2}
-.tile.ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,26,64,.72) 0%,rgba(3,26,64,0) 50%)}
-.t1{grid-row:1/3}
-.t1::after{background:linear-gradient(0deg,rgba(3,26,64,.85) 0%,rgba(3,26,64,0) 55%)!important}
-.t1 .bot{position:absolute;left:24px;right:24px;bottom:24px}
-.t2{background:radial-gradient(130% 100% at 85% 110%,var(--electric) 0%,var(--royal) 45%,var(--ground-2) 100%)}
-.t2 ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.t2 li{font-size:13px;padding:6px 10px;border-radius:var(--r-tiny);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
-.t3{background:var(--ground)}
-.t3 .avs{display:flex;margin-top:22px}
-.t3 .avs img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--ground);margin-left:-12px}
-.t3 .avs img:first-child{margin-left:0}
-.t3 small{display:block;margin-top:12px;font-size:12.5px;color:var(--dull)}
-.t4{background:linear-gradient(170deg,#fff 0%,var(--ice-2) 100%);color:var(--ink)}
-.t4 .big{font:300 clamp(56px,6vw,88px)/1 var(--font);letter-spacing:-.05em;color:var(--royal);margin-top:16px}
-@media(max-width:1080px){.panel-head{grid-template-columns:1fr;gap:20px}.panel .intro{justify-self:start}.bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}.t1{grid-row:auto;grid-column:1/-1;height:420px}.tile{min-height:260px}}
-@media(max-width:600px){.bento{grid-template-columns:1fr}}
-
-/* faixa fixa que se expande */
-.pin{position:relative;height:230vh;margin-top:12px}
-.pin-in{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
-.pin-media{position:absolute;inset:0;clip-path:inset(var(--iy,14%) var(--ix,18%) round var(--ir,28px));will-change:clip-path}
-.pin-media img{width:100%;height:100%;object-fit:cover;transform:scale(var(--sc,1.18));will-change:transform}
-.pin-media::after{content:"";position:absolute;inset:0;background:rgba(3,26,64,var(--ov,.15))}
-.pin-copy{position:relative;z-index:2;text-align:center;padding:0 24px;opacity:var(--op,0);transform:translateY(calc((1 - var(--op,0)) * 40px))}
-.pin-copy h2{font-size:clamp(40px,6vw,96px);max-width:16ch;margin:18px auto 0}
-.pin-copy p{max-width:44ch;margin:22px auto 0;font-size:clamp(17px,1.6vw,21px);font-weight:300;color:rgba(255,255,255,.9)}
-html:not(.anim) .pin{height:auto}html:not(.anim) .pin-in{position:relative;height:80vh;min-height:520px}
-html:not(.anim) .pin-media{clip-path:none}html:not(.anim) .pin-media img{transform:none}html:not(.anim) .pin-media::after{background:rgba(3,26,64,.55)}html:not(.anim) .pin-copy{opacity:1;transform:none}
-
-/* números */
-.stats{background:var(--ice);border-radius:var(--r-med);margin:0 12px;padding-top:clamp(56px,7vw,110px);overflow:hidden}
-.rings{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-l)}
-.ring{padding:clamp(28px,3.4vw,48px) 18px clamp(44px,5vw,80px);border-left:1px solid var(--line-l);display:grid;place-items:center}
-.ring:first-child{border-left:0}
-.ring .c{position:relative;width:min(100%,240px);aspect-ratio:1}
-.ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
-.ring .tr{fill:none;stroke:var(--ice-2);stroke-width:5}
-.ring .pr{fill:none;stroke:var(--royal);stroke-width:5;stroke-linecap:round;stroke-dasharray:597;stroke-dashoffset:var(--off,0);transition:stroke-dashoffset 2s var(--ease) .2s}
-.anim .ring:not(.in) .pr{stroke-dashoffset:597}
-.ring .in-t{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20%}
-.ring strong{font:300 clamp(46px,4.8vw,70px)/1 var(--font);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.ring span{font-size:13.5px;line-height:1.4;margin-top:10px;color:var(--ink-soft)}
-.ring span b{font-weight:600;color:var(--ink)}
-@media(max-width:860px){.rings{grid-template-columns:1fr 1fr}.ring:nth-child(3){border-left:0}.ring:nth-child(n+3){border-top:1px solid var(--line-l)}}
-
-/* lista com foto */
-.split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,5vw,96px);align-items:stretch}
-.split h2{font-size:clamp(36px,4.8vw,72px);margin:20px 0 20px}
-.split .intro{font-size:18px;font-weight:300;max-width:40ch;color:var(--dull);margin-bottom:40px}
-.list{border-top:1px solid var(--line-d)}
-.item{border-bottom:1px solid var(--line-d);transition:border-color .4s}
-.item>button,.item>a{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:0;color:inherit;text-decoration:none;font:300 clamp(23px,2.3vw,31px)/1.2 var(--font);letter-spacing:-.03em;padding:22px 0;text-align:left;cursor:pointer;transition:color .3s,padding .4s var(--ease)}
-.item>button:hover,.item>a:hover{padding-left:10px}
-.item.open>button,.item>a:hover{color:var(--electric)}
-.item.open{border-bottom-color:var(--electric)}
-.item svg{width:18px;height:18px;flex:none;transition:transform .4s var(--ease)}
-.item.open svg{transform:rotate(90deg)}
-.det{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
-.det>div{overflow:hidden}
-.item.open .det{grid-template-rows:1fr}
-.det .inner{padding:0 0 26px;font-size:16px;color:rgba(255,255,255,.88)}
-.det p{margin-bottom:6px}
-.det .row{margin-top:18px}
-.photos{position:relative;border-radius:var(--r-main);overflow:hidden;min-height:560px;background:var(--ground-2)}
-.photos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .9s var(--ease),transform 1.6s var(--ease)}
-.photos img.on{opacity:1;transform:scale(1)}
-.photos .cap{position:absolute;left:20px;bottom:20px;z-index:2;font-size:13px;background:rgba(3,26,64,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 12px;border-radius:var(--r-tiny)}
-.split .btn{margin-top:40px}
-@media(max-width:940px){.split{grid-template-columns:1fr}.photos{min-height:360px;order:-1}}
-
-/* faixa de convênios */
-.trust{padding-block:clamp(56px,7vw,100px) clamp(28px,3vw,48px)}
-.trust .eyebrow{display:flex;justify-content:center;margin-bottom:32px}
-.marquee{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.track{display:flex;width:max-content;animation:mq 42s linear infinite}
-.marquee:hover .track{animation-play-state:paused}
-.track div{flex:none;display:grid;place-items:center;text-align:center;min-width:220px;height:104px;padding:0 28px;border-left:1px solid var(--line-d);font:500 17px/1.2 var(--font);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9)}
-.track small{display:block;font:300 11.5px/1.3 var(--font);letter-spacing:.04em;text-transform:none;color:var(--dull);margin-top:6px}
-@keyframes mq{to{transform:translateX(-50%)}}
-.unna{margin:32px auto 0;text-align:center;font-size:15px;color:var(--dull);max-width:72ch}
-.unna b{color:#fff;font-weight:500}
-.unna .new{display:inline-block;background:var(--electric);color:var(--on-electric);font:600 10.5px/1.7 var(--font);letter-spacing:.1em;border-radius:var(--r-tiny);padding:0 8px;margin:0 6px;vertical-align:middle}
-
-/* painel com abas (equipe) */
-.team{margin:12px;border-radius:var(--r-med);background:radial-gradient(100% 90% at 50% 0%,#0A63CC 0%,var(--deep) 45%,var(--ground-2) 100%);padding:clamp(56px,7vw,110px) 0 clamp(40px,6vw,88px);text-align:center;overflow:hidden}
-.team h2{font-size:clamp(38px,5.4vw,84px);margin-top:18px}
-.team .sub{max-width:40ch;margin:20px auto 30px;font-size:18px;font-weight:300;color:rgba(255,255,255,.88)}
-.fict{display:inline-flex;gap:8px;align-items:center;margin-top:26px;border:1px dashed rgba(255,255,255,.55);border-radius:var(--r-tiny);padding:8px 14px;font:400 13.5px/1.4 var(--font);color:rgba(255,255,255,.9)}
-.tabs{display:flex;justify-content:center;margin:44px auto 14px;max-width:960px;padding:0 var(--margin);overflow-x:auto}
-.tab{flex:1 0 auto;min-width:150px;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.6);font:400 16.5px/1.2 var(--font);padding:18px 12px;cursor:pointer;letter-spacing:-.01em;transition:color .3s,border-color .3s}
-.tab:hover{color:#fff}
-.tab[aria-selected=true]{color:#fff;border-bottom:2px solid var(--electric)}
-.tcards{position:relative;max-width:960px;margin:0 auto;width:calc(100% - 2 * var(--margin))}
-.tcard{background:#fff;color:var(--ink);border-radius:var(--r-main);display:grid;grid-template-columns:300px 1fr;gap:36px;padding:16px;text-align:left;animation:tin .7s var(--ease)}
-@keyframes tin{from{opacity:0;transform:translateY(16px)}}
-.tcard .av{border-radius:10px;overflow:hidden;aspect-ratio:4/4.6;background:var(--ice)}
-.tcard .av img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.tcard .body{padding:20px 20px 20px 0;display:flex;flex-direction:column}
-.tcard .meta{font:500 12px/1 var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
-.tcard h3{font-size:clamp(30px,3.4vw,44px);margin:14px 0 6px}
-.tcard dl{margin:22px 0 26px;display:grid;grid-template-columns:auto 1fr;gap:10px 22px;font-size:15.5px;border-top:1px solid var(--line-l);padding-top:20px}
-.tcard dt{color:var(--ink-soft)}.tcard dd{margin:0;font-weight:500}.tcard dd em{font-style:normal;color:var(--danger);font-weight:400}
-.tcard .btn{margin-top:auto;align-self:flex-start}
-.tcard[hidden]{display:none}
-@media(max-width:760px){.tcard{grid-template-columns:1fr}.tcard .av{aspect-ratio:4/3.4}.tcard .body{padding:6px 8px 12px}}
-
-/* faq */
-.faqs{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(28px,5vw,96px);align-items:start}
-.faqs h2{font-size:clamp(36px,4.8vw,72px);margin-top:20px}
-.faqs .intro{margin-top:20px;font-weight:300;font-size:18px;max-width:30ch;color:var(--dull)}
-details{border-bottom:1px solid var(--line-d)}details:first-child{border-top:1px solid var(--line-d)}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:300 clamp(20px,2vw,27px)/1.25 var(--font);letter-spacing:-.03em;transition:color .3s}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--electric),var(--electric)) center/14px 1.5px no-repeat,linear-gradient(var(--electric),var(--electric)) center/1.5px 14px no-repeat;transition:transform .4s var(--ease)}
-summary:hover{color:var(--electric)}
-details[open] summary{color:var(--electric)}details[open] summary::after{transform:rotate(45deg)}
-details p{padding:0 0 26px;max-width:56ch;color:var(--dull);font-size:17px}
-@media(max-width:940px){.faqs{grid-template-columns:1fr}}
-
-/* CTA com formulário */
-.cta{position:relative;margin:12px 12px 0;background:var(--ice);border-radius:var(--r-med);overflow:hidden;padding-block:clamp(64px,8vw,130px)}
-.cta::before{content:"";position:absolute;left:30%;top:-40%;width:min(1100px,140vw);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(47,164,216,.42) 0%,rgba(25,211,243,.16) 40%,rgba(234,243,250,0) 68%);animation:breathe 9s ease-in-out infinite alternate}
-@keyframes breathe{to{transform:translateX(-46%) scale(1.08)}}
-.cta .wrap{position:relative}
-.cta-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(32px,6vw,110px);align-items:start}
-.cta h2{font-size:clamp(40px,5.4vw,84px);line-height:.98;margin-top:20px}
-.cta .intro{margin:22px 0 32px;font-size:18px;color:var(--ink-soft);max-width:36ch;font-weight:300}
-.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-l)}
-.steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line-l);font-size:16px}
-.steps span{font:300 15px/1.6 var(--font);color:var(--royal);font-variant-numeric:tabular-nums}
-form.card{background:#fff;color:var(--ink);border-radius:var(--r-main);padding:clamp(22px,3.6vw,40px);display:grid;gap:24px;box-shadow:0 30px 80px rgba(3,26,64,.14)}
-fieldset{border:0;margin:0;padding:0;min-width:0}
-legend,.lb{font:500 15.5px/1.4 var(--font);color:var(--ink);padding:0;margin-bottom:10px;display:block;letter-spacing:-.01em}
-.opt{font-weight:400;color:var(--ink-soft)}
-.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.choices.units{grid-template-columns:1fr 1fr}
-@media(max-width:480px){.choices.units{grid-template-columns:1fr}}
-.choices label{position:relative;display:block;cursor:pointer}
-.choices input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.choices span.c{display:flex;flex-direction:column;justify-content:center;min-height:54px;padding:10px 16px;border:1px solid #7D95B5;border-radius:var(--r-tiny);background:#fff;font:500 16px/1.25 var(--font);color:var(--ink);transition:border-color .2s,background .2s}
-.choices span.c small{font:400 13px/1.3 var(--font);color:var(--ink-soft);margin-top:3px}
-.choices label:hover span.c{border-color:var(--ink)}
-.choices input:checked+span.c{border-color:var(--royal);background:var(--ice);box-shadow:inset 0 0 0 1px var(--royal)}
-.choices input:focus-visible+span.c{outline:2px solid var(--royal);outline-offset:2px}
-input[type=text],select,textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #7D95B5;border-radius:var(--r-tiny);background:#fff;color:var(--ink);font:400 16px/1.5 var(--font)}
-textarea{min-height:100px;resize:vertical}
-.err{display:none;color:var(--danger);font:500 14px/1.4 var(--font);margin-top:8px}
-.invalid .err{display:block}.invalid input[type=text],.invalid select{border-color:var(--danger)}.invalid .choices span.c{border-color:var(--danger)}
-.conv[hidden]{display:none}
-.submit{display:grid;gap:12px}
-.submit .btn{min-height:58px;width:100%}
-.submit p{font-size:13px;line-height:1.45;color:var(--ink-soft)}
-.sent{display:none;background:var(--ice);border-radius:10px;padding:18px;gap:10px}
-.sent.show{display:grid}
-.sent h3{font:500 18px/1.3 var(--font);letter-spacing:-.01em}
-.sent pre{margin:0;white-space:pre-wrap;word-break:break-word;font:400 14px/1.5 var(--font);background:#fff;border:1px solid var(--ice-2);border-radius:var(--r-tiny);padding:12px}
-@media(max-width:940px){.cta-grid{grid-template-columns:1fr}}
-
-/* rodapé */
-footer{margin:12px;background:var(--ground-2);color:#fff;border-radius:var(--r-med);padding:clamp(40px,5vw,72px) clamp(20px,4vw,64px) 30px}
-.fcols{display:grid;grid-template-columns:repeat(3,1fr) 1.3fr;gap:36px;font-size:15px}
-.fcols h4{font:400 14px/1.4 var(--font);color:var(--sky);margin:0 0 16px}
-.fcols a:not(.btn){display:block;text-decoration:none;padding:5px 0;color:rgba(255,255,255,.92)}.fcols a:not(.btn):hover{color:var(--electric)}
-.fcols p{padding:5px 0;color:rgba(255,255,255,.92)}
-.fcard{background:var(--deep);border-radius:var(--r-main);padding:22px;display:grid;gap:12px;align-self:start}
-.fcard p{padding:0;font-size:17px;font-weight:300}
-.fcard .btn{width:100%;min-height:46px;font-size:16px}
-.fbig{margin:clamp(48px,6vw,88px) 0 24px;color:#fff}
-.fbig svg{width:100%;height:auto;opacity:.95}
-.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;font-size:13px;line-height:1.5;color:var(--dull);border-top:1px solid var(--line-d);padding-top:22px}
-.legal b{color:#fff;font-weight:500}
-@media(max-width:940px){.fcols{grid-template-columns:1fr 1fr}.fcard{grid-column:1/-1}}
-@media(max-width:520px){.fcols{grid-template-columns:1fr}}
-
-/* WhatsApp flutuante */
-.fab{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-.fab-btn{width:62px;height:62px;border-radius:50%;border:0;background:var(--wa);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .3s var(--ease),background .3s}
-.fab-btn:hover{background:var(--wa-hover);transform:scale(1.06)}.fab-btn svg{width:32px;height:32px}
-.fab-pop{display:none;width:min(330px,calc(100vw - 36px));background:#fff;color:var(--ink);border-radius:var(--r-main);box-shadow:0 20px 50px rgba(3,26,64,.35);padding:18px;transform-origin:bottom right}
-.fab-pop.open{display:block;animation:pop .35s var(--ease)}
-@keyframes pop{from{opacity:0;transform:scale(.92) translateY(8px)}}
-.fab-pop h2{font:500 17px/1.3 var(--font);letter-spacing:-.01em;margin-bottom:4px}
-.fab-pop p{font-size:14px;line-height:1.4;color:var(--ink-soft);margin-bottom:10px}
-.fab-pop a.opt-u{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #7D95B5;border-radius:var(--r-tiny);text-decoration:none;color:var(--ink);margin-top:8px;font:500 16px/1.25 var(--font);transition:border-color .2s,background .2s}
-.fab-pop a.opt-u:hover{border-color:var(--wa);background:var(--ice)}
-.fab-pop a.opt-u small{display:block;font:400 13px/1.3 var(--font);color:var(--ink-soft)}
-.fab-pop a.opt-u svg{color:var(--wa);flex:none}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ground);z-index:60}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.track,.cta::before{animation:none}*{transition-duration:.01ms!important}}
-</style>
-
+<link rel="stylesheet" href="assets/site.css">
 <style>html,body{margin:0}:root{color-scheme:dark}</style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="announce" id="announce"><span><b style="font-weight:500">Site proposta</b> · equipe, CRO e fotos são ilustrativos. Novo: atendemos a Rede UNNA. <a href="#convenios">Ver convênios</a></span><button type="button" id="announce-x" aria-label="Fechar aviso">×</button></div>
-
-<div class="navcard stick" id="stick" aria-hidden="true"><a href="#topo" aria-label="OdontoCenter, ir ao início"><svg class="logo" viewBox="0 0 505.2 57.2" role="img" aria-label="OdontoCenter"><path fill="currentColor" fill-rule="evenodd" d="M0 25.6Q0 19.1 3 13.8Q6 8.6 11.2 5.7Q16.4 2.8 22.6 2.8Q29 2.8 34.1 5.7Q39.3 8.6 42.3 13.8Q45.2 19 45.2 25.6Q45.2 32.2 42.3 37.4Q39.3 42.7 34.1 45.6Q29 48.5 22.6 48.5Q16.4 48.5 11.2 45.6Q6 42.7 3 37.4Q0 32.2 0 25.6ZM39.2 25.6Q39.2 20.2 37.1 16.2Q34.9 12.2 31.2 10Q27.4 7.8 22.6 7.8Q17.8 7.8 14.1 10Q10.3 12.2 8.2 16.2Q6 20.2 6 25.6Q6 31 8.2 35Q10.3 39.1 14.1 41.2Q17.9 43.4 22.6 43.4Q27.3 43.4 31.1 41.2Q34.9 39.1 37.1 35Q39.2 31 39.2 25.6ZM92.5 25.8Q92.5 32.8 89.6 37.8Q86.7 42.9 81.3 45.6Q75.9 48.2 68.5 48.2H54.5V3.2H68.5Q75.9 3.2 81.3 6Q86.7 8.7 89.6 13.8Q92.5 18.9 92.5 25.8ZM86.5 25.8Q86.5 17.5 81.9 12.7Q77.2 8 68.5 8H60.4V43.4H68.5Q77.3 43.4 81.9 38.8Q86.5 34.2 86.5 25.8ZM190 48.2H184L159.8 12.5V48.2H153.8V3.2H159.8L184 39V3.2H190ZM227 3.2V8H215.4V48.2H209.9V8H198.2V3.2ZM231.2 25.6Q231.2 19.1 234.3 13.8Q237.3 8.6 242.4 5.7Q247.6 2.8 253.9 2.8Q260.2 2.8 265.4 5.7Q270.6 8.6 273.5 13.8Q276.5 19 276.5 25.6Q276.5 32.2 273.5 37.4Q270.6 42.7 265.4 45.6Q260.2 48.5 253.9 48.5Q247.6 48.5 242.4 45.6Q237.3 42.7 234.3 37.4Q231.2 32.2 231.2 25.6ZM270.5 25.6Q270.5 20.2 268.3 16.2Q266.2 12.2 262.4 10Q258.7 7.8 253.9 7.8Q249.1 7.8 245.3 10Q241.6 12.2 239.4 16.2Q237.3 20.2 237.3 25.6Q237.3 31 239.4 35Q241.6 39.1 245.4 41.2Q249.2 43.4 253.9 43.4Q258.6 43.4 262.4 41.2Q266.2 39.1 268.3 35Q270.5 31 270.5 25.6ZM293.6 10.2Q300.7 10.2 305.7 14.6Q310.8 18.9 312.5 26.4H301.8Q300.6 23.5 298.4 22Q296.2 20.5 293.5 20.5Q289 20.5 286.2 24.1Q283.4 27.7 283.4 33.8Q283.4 39.8 286.2 43.4Q289 47.1 293.5 47.1Q296.2 47.1 298.4 45.5Q300.6 44 301.8 41.1H312.5Q310.8 48.6 305.7 52.9Q300.7 57.2 293.6 57.2Q287.8 57.2 283.2 54.3Q278.6 51.3 276.1 45.9Q273.5 40.6 273.5 33.8Q273.5 26.9 276.1 21.6Q278.6 16.2 283.2 13.2Q287.8 10.2 293.6 10.2ZM331.9 19.6V28.8H347.2V37.4H331.9V47.4H349.2V56.2H320.5V10.8H349.2V19.6ZM393.5 56.5H383.4L366.6 28.3V56.5H356.5V10.8H366.6L383.4 39.1V10.8H393.5ZM430 11.2V20.1H419.7V56.5H410.3V20.1H400V11.2ZM447.8 19.7V28.9H463V37.5H447.8V47.6H465V56.5H436.5V10.8H465V19.7ZM493.9 56.5 485.3 39.3H482.8V56.5H472.8V11H489.7Q494.6 11 498 12.9Q501.5 14.8 503.2 18Q504.9 21.3 504.9 25.3Q504.9 29.9 502.6 33.4Q500.2 37 495.7 38.5L505.2 56.5ZM482.8 31.5H489.1Q491.9 31.5 493.2 30Q494.6 28.5 494.6 25.8Q494.6 23.2 493.2 21.7Q491.9 20.2 489.1 20.2H482.8ZM96.0,16.0 C96.0,4.6 107.3,0.0 116.7,4.6 C118.6,5.7 121.1,5.7 123.0,4.6 C132.4,0.0 143.8,4.6 143.8,16.0 C143.8,26.2 137.5,30.8 134.9,41.6 C133.7,50.2 129.9,54.8 126.2,54.8 C122.4,54.8 121.1,45.6 119.9,39.9 C118.6,45.6 117.3,54.8 113.6,54.8 C109.8,54.8 106.0,50.2 104.8,41.6 C102.3,30.8 96.0,26.2 96.0,16.0 Z"/></svg></a><nav aria-label="Principal"><a href="#especialidades">Especialidades</a><a href="#unidades">Unidades</a><a href="#convenios">Convênios</a><a href="#equipe">Equipe</a><a href="#duvidas">Dúvidas</a></nav><div class="end"><a class="tel btn btn-ob" href="tel:+553138277739">(31) 3827-7739</a><a class="btn btn-b" href="#agendar">Agendar avaliação</a></div></div>
-
+<div class="announce" id="announce"><span><b style="font-weight:500">Site proposta</b> · equipe, CRO e fotos são ilustrativos. Novo: atendemos a Rede UNNA. <a href="index.html#convenios">Ver convênios</a></span><button type="button" id="announce-x" aria-label="Fechar aviso">×</button></div>
+<div class="navcard stick" id="stick" aria-hidden="true"><a href="#topo" aria-label="OdontoCenter, página inicial"><svg class="logo" viewBox="0 0 505.2 57.2" role="img" aria-label="OdontoCenter"><path fill="currentColor" fill-rule="evenodd" d="M0 25.6Q0 19.1 3 13.8Q6 8.6 11.2 5.7Q16.4 2.8 22.6 2.8Q29 2.8 34.1 5.7Q39.3 8.6 42.3 13.8Q45.2 19 45.2 25.6Q45.2 32.2 42.3 37.4Q39.3 42.7 34.1 45.6Q29 48.5 22.6 48.5Q16.4 48.5 11.2 45.6Q6 42.7 3 37.4Q0 32.2 0 25.6ZM39.2 25.6Q39.2 20.2 37.1 16.2Q34.9 12.2 31.2 10Q27.4 7.8 22.6 7.8Q17.8 7.8 14.1 10Q10.3 12.2 8.2 16.2Q6 20.2 6 25.6Q6 31 8.2 35Q10.3 39.1 14.1 41.2Q17.9 43.4 22.6 43.4Q27.3 43.4 31.1 41.2Q34.9 39.1 37.1 35Q39.2 31 39.2 25.6ZM92.5 25.8Q92.5 32.8 89.6 37.8Q86.7 42.9 81.3 45.6Q75.9 48.2 68.5 48.2H54.5V3.2H68.5Q75.9 3.2 81.3 6Q86.7 8.7 89.6 13.8Q92.5 18.9 92.5 25.8ZM86.5 25.8Q86.5 17.5 81.9 12.7Q77.2 8 68.5 8H60.4V43.4H68.5Q77.3 43.4 81.9 38.8Q86.5 34.2 86.5 25.8ZM190 48.2H184L159.8 12.5V48.2H153.8V3.2H159.8L184 39V3.2H190ZM227 3.2V8H215.4V48.2H209.9V8H198.2V3.2ZM231.2 25.6Q231.2 19.1 234.3 13.8Q237.3 8.6 242.4 5.7Q247.6 2.8 253.9 2.8Q260.2 2.8 265.4 5.7Q270.6 8.6 273.5 13.8Q276.5 19 276.5 25.6Q276.5 32.2 273.5 37.4Q270.6 42.7 265.4 45.6Q260.2 48.5 253.9 48.5Q247.6 48.5 242.4 45.6Q237.3 42.7 234.3 37.4Q231.2 32.2 231.2 25.6ZM270.5 25.6Q270.5 20.2 268.3 16.2Q266.2 12.2 262.4 10Q258.7 7.8 253.9 7.8Q249.1 7.8 245.3 10Q241.6 12.2 239.4 16.2Q237.3 20.2 237.3 25.6Q237.3 31 239.4 35Q241.6 39.1 245.4 41.2Q249.2 43.4 253.9 43.4Q258.6 43.4 262.4 41.2Q266.2 39.1 268.3 35Q270.5 31 270.5 25.6ZM293.6 10.2Q300.7 10.2 305.7 14.6Q310.8 18.9 312.5 26.4H301.8Q300.6 23.5 298.4 22Q296.2 20.5 293.5 20.5Q289 20.5 286.2 24.1Q283.4 27.7 283.4 33.8Q283.4 39.8 286.2 43.4Q289 47.1 293.5 47.1Q296.2 47.1 298.4 45.5Q300.6 44 301.8 41.1H312.5Q310.8 48.6 305.7 52.9Q300.7 57.2 293.6 57.2Q287.8 57.2 283.2 54.3Q278.6 51.3 276.1 45.9Q273.5 40.6 273.5 33.8Q273.5 26.9 276.1 21.6Q278.6 16.2 283.2 13.2Q287.8 10.2 293.6 10.2ZM331.9 19.6V28.8H347.2V37.4H331.9V47.4H349.2V56.2H320.5V10.8H349.2V19.6ZM393.5 56.5H383.4L366.6 28.3V56.5H356.5V10.8H366.6L383.4 39.1V10.8H393.5ZM430 11.2V20.1H419.7V56.5H410.3V20.1H400V11.2ZM447.8 19.7V28.9H463V37.5H447.8V47.6H465V56.5H436.5V10.8H465V19.7ZM493.9 56.5 485.3 39.3H482.8V56.5H472.8V11H489.7Q494.6 11 498 12.9Q501.5 14.8 503.2 18Q504.9 21.3 504.9 25.3Q504.9 29.9 502.6 33.4Q500.2 37 495.7 38.5L505.2 56.5ZM482.8 31.5H489.1Q491.9 31.5 493.2 30Q494.6 28.5 494.6 25.8Q494.6 23.2 493.2 21.7Q491.9 20.2 489.1 20.2H482.8ZM96.0,16.0 C96.0,4.6 107.3,0.0 116.7,4.6 C118.6,5.7 121.1,5.7 123.0,4.6 C132.4,0.0 143.8,4.6 143.8,16.0 C143.8,26.2 137.5,30.8 134.9,41.6 C133.7,50.2 129.9,54.8 126.2,54.8 C122.4,54.8 121.1,45.6 119.9,39.9 C118.6,45.6 117.3,54.8 113.6,54.8 C109.8,54.8 106.0,50.2 104.8,41.6 C102.3,30.8 96.0,26.2 96.0,16.0 Z"/></svg></a><nav aria-label="Principal"><a href="#especialidades">Especialidades</a><a href="#unidades">Unidades</a><a href="#convenios">Convênios</a><a href="#equipe">Equipe</a><a href="#duvidas">Dúvidas</a></nav><div class="end"><a class="tel btn btn-ob" href="tel:+5531996252944">(31) 99625-2944</a><a class="btn btn-b" href="#agendar">Agendar avaliação</a><button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span></button></div></div>
+<div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Menu"><button class="drawer-close" type="button" aria-label="Fechar menu">×</button><a class="dl" href="#especialidades">Especialidades<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="dl" href="#unidades">Unidades<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="dl" href="#convenios">Convênios<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="dl" href="#equipe">Equipe<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="dl" href="#duvidas">Dúvidas<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="dl" href="#agendar">Agendar avaliação<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><div class="dsub"><a href="especialidades/ortodontia-ipatinga.html">Ortodontia</a><a href="especialidades/implante-dentario-ipatinga.html">Implantes dentários</a><a href="especialidades/clareamento-estetica-dental-ipatinga.html">Estética e clareamento</a><a href="especialidades/bruxismo-ipatinga.html">Bruxismo</a><a href="especialidades/dentistica-protese-ipatinga.html">Dentística e prótese</a><a href="especialidades/periodontia-tratamento-gengiva-ipatinga.html">Periodontia</a><a href="especialidades/tratamento-de-canal-endodontia-ipatinga.html">Endodontia</a><a href="especialidades/cirurgia-odontologica-ipatinga.html">Cirurgias</a></div><div class="dbot"><a class="btn btn-wa" data-wa="canaa" href="#"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> WhatsApp Canaã</a><a class="btn btn-wa" data-wa="centro" href="#"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> WhatsApp Centro</a><span class="hours">Segunda a sexta, das 8h às 18h</span></div></div>
 <main id="conteudo">
 <header class="hero" id="topo">
   <div class="hero-bg"><img class="photo-grade" src="img/hero.jpg" alt="Mulher sorrindo com dentes saudáveis" width="1800" height="2700" fetchpriority="high"></div>
-  <div class="navcard"><a href="#topo" aria-label="OdontoCenter, ir ao início"><svg class="logo" viewBox="0 0 505.2 57.2" role="img" aria-label="OdontoCenter"><path fill="currentColor" fill-rule="evenodd" d="M0 25.6Q0 19.1 3 13.8Q6 8.6 11.2 5.7Q16.4 2.8 22.6 2.8Q29 2.8 34.1 5.7Q39.3 8.6 42.3 13.8Q45.2 19 45.2 25.6Q45.2 32.2 42.3 37.4Q39.3 42.7 34.1 45.6Q29 48.5 22.6 48.5Q16.4 48.5 11.2 45.6Q6 42.7 3 37.4Q0 32.2 0 25.6ZM39.2 25.6Q39.2 20.2 37.1 16.2Q34.9 12.2 31.2 10Q27.4 7.8 22.6 7.8Q17.8 7.8 14.1 10Q10.3 12.2 8.2 16.2Q6 20.2 6 25.6Q6 31 8.2 35Q10.3 39.1 14.1 41.2Q17.9 43.4 22.6 43.4Q27.3 43.4 31.1 41.2Q34.9 39.1 37.1 35Q39.2 31 39.2 25.6ZM92.5 25.8Q92.5 32.8 89.6 37.8Q86.7 42.9 81.3 45.6Q75.9 48.2 68.5 48.2H54.5V3.2H68.5Q75.9 3.2 81.3 6Q86.7 8.7 89.6 13.8Q92.5 18.9 92.5 25.8ZM86.5 25.8Q86.5 17.5 81.9 12.7Q77.2 8 68.5 8H60.4V43.4H68.5Q77.3 43.4 81.9 38.8Q86.5 34.2 86.5 25.8ZM190 48.2H184L159.8 12.5V48.2H153.8V3.2H159.8L184 39V3.2H190ZM227 3.2V8H215.4V48.2H209.9V8H198.2V3.2ZM231.2 25.6Q231.2 19.1 234.3 13.8Q237.3 8.6 242.4 5.7Q247.6 2.8 253.9 2.8Q260.2 2.8 265.4 5.7Q270.6 8.6 273.5 13.8Q276.5 19 276.5 25.6Q276.5 32.2 273.5 37.4Q270.6 42.7 265.4 45.6Q260.2 48.5 253.9 48.5Q247.6 48.5 242.4 45.6Q237.3 42.7 234.3 37.4Q231.2 32.2 231.2 25.6ZM270.5 25.6Q270.5 20.2 268.3 16.2Q266.2 12.2 262.4 10Q258.7 7.8 253.9 7.8Q249.1 7.8 245.3 10Q241.6 12.2 239.4 16.2Q237.3 20.2 237.3 25.6Q237.3 31 239.4 35Q241.6 39.1 245.4 41.2Q249.2 43.4 253.9 43.4Q258.6 43.4 262.4 41.2Q266.2 39.1 268.3 35Q270.5 31 270.5 25.6ZM293.6 10.2Q300.7 10.2 305.7 14.6Q310.8 18.9 312.5 26.4H301.8Q300.6 23.5 298.4 22Q296.2 20.5 293.5 20.5Q289 20.5 286.2 24.1Q283.4 27.7 283.4 33.8Q283.4 39.8 286.2 43.4Q289 47.1 293.5 47.1Q296.2 47.1 298.4 45.5Q300.6 44 301.8 41.1H312.5Q310.8 48.6 305.7 52.9Q300.7 57.2 293.6 57.2Q287.8 57.2 283.2 54.3Q278.6 51.3 276.1 45.9Q273.5 40.6 273.5 33.8Q273.5 26.9 276.1 21.6Q278.6 16.2 283.2 13.2Q287.8 10.2 293.6 10.2ZM331.9 19.6V28.8H347.2V37.4H331.9V47.4H349.2V56.2H320.5V10.8H349.2V19.6ZM393.5 56.5H383.4L366.6 28.3V56.5H356.5V10.8H366.6L383.4 39.1V10.8H393.5ZM430 11.2V20.1H419.7V56.5H410.3V20.1H400V11.2ZM447.8 19.7V28.9H463V37.5H447.8V47.6H465V56.5H436.5V10.8H465V19.7ZM493.9 56.5 485.3 39.3H482.8V56.5H472.8V11H489.7Q494.6 11 498 12.9Q501.5 14.8 503.2 18Q504.9 21.3 504.9 25.3Q504.9 29.9 502.6 33.4Q500.2 37 495.7 38.5L505.2 56.5ZM482.8 31.5H489.1Q491.9 31.5 493.2 30Q494.6 28.5 494.6 25.8Q494.6 23.2 493.2 21.7Q491.9 20.2 489.1 20.2H482.8ZM96.0,16.0 C96.0,4.6 107.3,0.0 116.7,4.6 C118.6,5.7 121.1,5.7 123.0,4.6 C132.4,0.0 143.8,4.6 143.8,16.0 C143.8,26.2 137.5,30.8 134.9,41.6 C133.7,50.2 129.9,54.8 126.2,54.8 C122.4,54.8 121.1,45.6 119.9,39.9 C118.6,45.6 117.3,54.8 113.6,54.8 C109.8,54.8 106.0,50.2 104.8,41.6 C102.3,30.8 96.0,26.2 96.0,16.0 Z"/></svg></a><nav aria-label="Principal"><a href="#especialidades">Especialidades</a><a href="#unidades">Unidades</a><a href="#convenios">Convênios</a><a href="#equipe">Equipe</a><a href="#duvidas">Dúvidas</a></nav><div class="end"><a class="tel btn btn-ob" href="tel:+553138277739">(31) 3827-7739</a><a class="btn btn-b" href="#agendar">Agendar avaliação</a></div></div>
+  <div class="navcard"><a href="#topo" aria-label="OdontoCenter, página inicial"><svg class="logo" viewBox="0 0 505.2 57.2" role="img" aria-label="OdontoCenter"><path fill="currentColor" fill-rule="evenodd" d="M0 25.6Q0 19.1 3 13.8Q6 8.6 11.2 5.7Q16.4 2.8 22.6 2.8Q29 2.8 34.1 5.7Q39.3 8.6 42.3 13.8Q45.2 19 45.2 25.6Q45.2 32.2 42.3 37.4Q39.3 42.7 34.1 45.6Q29 48.5 22.6 48.5Q16.4 48.5 11.2 45.6Q6 42.7 3 37.4Q0 32.2 0 25.6ZM39.2 25.6Q39.2 20.2 37.1 16.2Q34.9 12.2 31.2 10Q27.4 7.8 22.6 7.8Q17.8 7.8 14.1 10Q10.3 12.2 8.2 16.2Q6 20.2 6 25.6Q6 31 8.2 35Q10.3 39.1 14.1 41.2Q17.9 43.4 22.6 43.4Q27.3 43.4 31.1 41.2Q34.9 39.1 37.1 35Q39.2 31 39.2 25.6ZM92.5 25.8Q92.5 32.8 89.6 37.8Q86.7 42.9 81.3 45.6Q75.9 48.2 68.5 48.2H54.5V3.2H68.5Q75.9 3.2 81.3 6Q86.7 8.7 89.6 13.8Q92.5 18.9 92.5 25.8ZM86.5 25.8Q86.5 17.5 81.9 12.7Q77.2 8 68.5 8H60.4V43.4H68.5Q77.3 43.4 81.9 38.8Q86.5 34.2 86.5 25.8ZM190 48.2H184L159.8 12.5V48.2H153.8V3.2H159.8L184 39V3.2H190ZM227 3.2V8H215.4V48.2H209.9V8H198.2V3.2ZM231.2 25.6Q231.2 19.1 234.3 13.8Q237.3 8.6 242.4 5.7Q247.6 2.8 253.9 2.8Q260.2 2.8 265.4 5.7Q270.6 8.6 273.5 13.8Q276.5 19 276.5 25.6Q276.5 32.2 273.5 37.4Q270.6 42.7 265.4 45.6Q260.2 48.5 253.9 48.5Q247.6 48.5 242.4 45.6Q237.3 42.7 234.3 37.4Q231.2 32.2 231.2 25.6ZM270.5 25.6Q270.5 20.2 268.3 16.2Q266.2 12.2 262.4 10Q258.7 7.8 253.9 7.8Q249.1 7.8 245.3 10Q241.6 12.2 239.4 16.2Q237.3 20.2 237.3 25.6Q237.3 31 239.4 35Q241.6 39.1 245.4 41.2Q249.2 43.4 253.9 43.4Q258.6 43.4 262.4 41.2Q266.2 39.1 268.3 35Q270.5 31 270.5 25.6ZM293.6 10.2Q300.7 10.2 305.7 14.6Q310.8 18.9 312.5 26.4H301.8Q300.6 23.5 298.4 22Q296.2 20.5 293.5 20.5Q289 20.5 286.2 24.1Q283.4 27.7 283.4 33.8Q283.4 39.8 286.2 43.4Q289 47.1 293.5 47.1Q296.2 47.1 298.4 45.5Q300.6 44 301.8 41.1H312.5Q310.8 48.6 305.7 52.9Q300.7 57.2 293.6 57.2Q287.8 57.2 283.2 54.3Q278.6 51.3 276.1 45.9Q273.5 40.6 273.5 33.8Q273.5 26.9 276.1 21.6Q278.6 16.2 283.2 13.2Q287.8 10.2 293.6 10.2ZM331.9 19.6V28.8H347.2V37.4H331.9V47.4H349.2V56.2H320.5V10.8H349.2V19.6ZM393.5 56.5H383.4L366.6 28.3V56.5H356.5V10.8H366.6L383.4 39.1V10.8H393.5ZM430 11.2V20.1H419.7V56.5H410.3V20.1H400V11.2ZM447.8 19.7V28.9H463V37.5H447.8V47.6H465V56.5H436.5V10.8H465V19.7ZM493.9 56.5 485.3 39.3H482.8V56.5H472.8V11H489.7Q494.6 11 498 12.9Q501.5 14.8 503.2 18Q504.9 21.3 504.9 25.3Q504.9 29.9 502.6 33.4Q500.2 37 495.7 38.5L505.2 56.5ZM482.8 31.5H489.1Q491.9 31.5 493.2 30Q494.6 28.5 494.6 25.8Q494.6 23.2 493.2 21.7Q491.9 20.2 489.1 20.2H482.8ZM96.0,16.0 C96.0,4.6 107.3,0.0 116.7,4.6 C118.6,5.7 121.1,5.7 123.0,4.6 C132.4,0.0 143.8,4.6 143.8,16.0 C143.8,26.2 137.5,30.8 134.9,41.6 C133.7,50.2 129.9,54.8 126.2,54.8 C122.4,54.8 121.1,45.6 119.9,39.9 C118.6,45.6 117.3,54.8 113.6,54.8 C109.8,54.8 106.0,50.2 104.8,41.6 C102.3,30.8 96.0,26.2 96.0,16.0 Z"/></svg></a><nav aria-label="Principal"><a href="#especialidades">Especialidades</a><a href="#unidades">Unidades</a><a href="#convenios">Convênios</a><a href="#equipe">Equipe</a><a href="#duvidas">Dúvidas</a></nav><div class="end"><a class="tel btn btn-ob" href="tel:+5531996252944">(31) 99625-2944</a><a class="btn btn-b" href="#agendar">Agendar avaliação</a><button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span></button></div></div>
   <div class="hero-copy">
-    <h1><span class="ln"><span style="--d:.15s">O seu sorriso</span></span><span class="ln"><span style="--d:.27s">é a sua <span class="it">marca</span></span></span><span class="ln"><span style="--d:.39s"><span class="it">registrada</span></span></span></h1>
-    <p class="sub rv" style="--d:.55s">Odontologia completa em Ipatinga, com especialistas, convênios e atendimento humanizado desde 2001.</p>
+    <h1 class="hero-eyebrow rv" style="--d:.05s">Clínica odontológica em Ipatinga · desde 2001</h1><p class="tagline" aria-hidden="false"><span class="ln"><span style="--d:.15s">O seu sorriso</span></span><span class="ln"><span style="--d:.27s">é a sua <span class="it">marca</span></span></span><span class="ln"><span style="--d:.39s"><span class="it">registrada</span></span></span></p>
+    <p class="sub rv" style="--d:.55s">Dentistas especialistas, convênios e atendimento humanizado no Canaã e no Centro. Segunda a sexta, das 8h às 18h.</p>
     <div class="row rv" style="--d:.68s"><a class="btn btn-e" href="#agendar">Agendar avaliação <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-o" href="#especialidades">Conhecer especialidades</a></div>
   </div>
   <div class="meta rv" style="--d:.8s"><div><b>25 anos</b>em Ipatinga</div><div><b>2</b>unidades</div><div><b>18</b>convênios</div></div>
@@ -339,16 +33,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section class="sec" id="especialidades" aria-labelledby="h-esp"><div class="wrap">
   <div class="sec-head"><span class="eyebrow rv">Especialidades</span><h2 class="rv" id="h-esp" style="--d:.08s">Cuidado completo para cada fase do seu <span class="it">sorriso</span></h2><p class="rv" style="--d:.16s">Do check-up ao implante, toda a jornada em um só lugar, com especialistas em cada área.</p></div>
   <div class="pc">
-    <a class="pcard rv" style="--d:0s" href="#agendar" data-service="Ortodontia (aparelho)"><img class="photo-grade" src="img/orto.jpg" alt="Paciente colocando alinhador ortodôntico transparente" loading="lazy"><span class="tag">Ortodontia</span><span class="tx"><h3>Ortodontia</h3><p>Aparelho fixo, alinhadores invisíveis e manutenção</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <a class="pcard rv" style="--d:.08s" href="#agendar" data-service="Implantes dentários"><img class="photo-grade" src="img/implante.jpg" alt="Dentista analisando radiografias" loading="lazy"><span class="tag">Implantes</span><span class="tx"><h3>Implantes dentários</h3><p>Reposição de dentes com planejamento por imagem</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <a class="pcard rv" style="--d:.16s" href="#agendar" data-service="Clareamento e estética"><img class="photo-grade" src="img/estetica.jpg" alt="Exame do sorriso de um paciente" loading="lazy"><span class="tag">Estética</span><span class="tx"><h3>Estética e clareamento</h3><p>Cor, forma e harmonia para o seu sorriso</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <a class="pcard rv" style="--d:.24s" href="#agendar" data-service="Bruxismo"><img class="photo-grade" src="img/bruxismo.jpg" alt="Mulher com expressão tranquila" loading="lazy"><span class="tag">Bruxismo</span><span class="tx"><h3>Bruxismo</h3><p>Alívio do ranger e do apertar dos dentes</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="pcard rv" style="--d:0s" href="especialidades/ortodontia-ipatinga.html"><img class="photo-grade" src="img/orto.jpg" alt="Paciente colocando alinhador ortodôntico transparente" loading="lazy"><span class="tag">Ortodontia</span><span class="tx"><h3>Ortodontia</h3><p>Aparelho fixo, alinhadores invisíveis e manutenção</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="pcard rv" style="--d:.08s" href="especialidades/implante-dentario-ipatinga.html"><img class="photo-grade" src="img/implante.jpg" alt="Dentista analisando radiografias" loading="lazy"><span class="tag">Implantes</span><span class="tx"><h3>Implantes dentários</h3><p>Reposição de dentes com planejamento por imagem</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="pcard rv" style="--d:.16s" href="especialidades/clareamento-estetica-dental-ipatinga.html"><img class="photo-grade" src="img/estetica.jpg" alt="Exame do sorriso de um paciente" loading="lazy"><span class="tag">Estética</span><span class="tx"><h3>Estética e clareamento</h3><p>Cor, forma e harmonia para o seu sorriso</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="pcard rv" style="--d:.24s" href="especialidades/bruxismo-ipatinga.html"><img class="photo-grade" src="img/bruxismo.jpg" alt="Mulher com expressão tranquila" loading="lazy"><span class="tag">Bruxismo</span><span class="tx"><h3>Bruxismo</h3><p>Alívio do ranger e do apertar dos dentes</p></span><span class="go"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
   <div class="lc">
-    <a class="lcard rv" style="--d:0s" href="#agendar" data-service="Dentística e prótese"><span class="th"><img class="photo-grade" src="img/protese.jpg" alt="" loading="lazy"></span><span><h3>Dentística e prótese</h3><p>Restaurações e próteses sob medida</p></span></a>
-    <a class="lcard rv" style="--d:.06s" href="#agendar" data-service="Periodontia (gengiva)"><span class="th"><img class="photo-grade" src="img/perio.jpg" alt="" loading="lazy"></span><span><h3>Periodontia</h3><p>Saúde da gengiva e prevenção</p></span></a>
-    <a class="lcard rv" style="--d:.12s" href="#agendar" data-service="Endodontia (canal)"><span class="th"><img class="photo-grade" src="img/endo.jpg" alt="" loading="lazy"></span><span><h3>Endodontia</h3><p>Tratamento de canal</p></span></a>
-    <a class="lcard rv" style="--d:.18s" href="#agendar" data-service="Cirurgias"><span class="th"><img class="photo-grade" src="img/cirurgia.jpg" alt="" loading="lazy"></span><span><h3>Cirurgias</h3><p>Extrações e procedimentos cirúrgicos</p></span></a>
+    <a class="lcard rv" style="--d:0s" href="especialidades/dentistica-protese-ipatinga.html"><span class="th"><img class="photo-grade" src="img/protese.jpg" alt="" loading="lazy"></span><span><h3>Dentística e prótese</h3><p>Restaurações e próteses sob medida</p></span></a>
+    <a class="lcard rv" style="--d:.06s" href="especialidades/periodontia-tratamento-gengiva-ipatinga.html"><span class="th"><img class="photo-grade" src="img/perio.jpg" alt="" loading="lazy"></span><span><h3>Periodontia</h3><p>Saúde da gengiva e prevenção</p></span></a>
+    <a class="lcard rv" style="--d:.12s" href="especialidades/tratamento-de-canal-endodontia-ipatinga.html"><span class="th"><img class="photo-grade" src="img/endo.jpg" alt="" loading="lazy"></span><span><h3>Endodontia</h3><p>Tratamento de canal</p></span></a>
+    <a class="lcard rv" style="--d:.18s" href="especialidades/cirurgia-odontologica-ipatinga.html"><span class="th"><img class="photo-grade" src="img/cirurgia.jpg" alt="" loading="lazy"></span><span><h3>Cirurgias</h3><p>Extrações e procedimentos cirúrgicos</p></span></a>
   </div>
 </div></section>
 
@@ -386,8 +80,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <h2 class="rv" id="h-un" style="--d:.08s">Perto de você, em dois endereços de <span class="it">Ipatinga</span></h2>
     <p class="intro rv" style="--d:.16s">As duas unidades atendem por convênio e particular. Escolha a mais próxima e agende.</p>
     <div class="list rv" style="--d:.22s">
-      <div class="item open" data-photo="0"><button type="button" aria-expanded="true">Unidade Canaã <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><div class="det"><div><div class="inner"><p>Rua dos Profetas, 210 · Ipatinga-MG</p><p>Telefone <a href="tel:+553138277739">(31) 3827-7739</a> · WhatsApp <a href="https://wa.me/5531996252944" target="_blank" rel="noopener">(31) 99625-2944</a></p><div class="row"><a class="btn btn-e btn-sm" data-unit="canaa" href="#agendar">Agendar nesta unidade</a><a class="btn btn-o btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Profetas+210+Ipatinga+MG" target="_blank" rel="noopener">Ver como chegar</a></div></div></div></div></div>
-      <div class="item" data-photo="1"><button type="button" aria-expanded="false">Unidade Centro <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><div class="det"><div><div class="inner"><p>Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade · Ipatinga-MG</p><p>Telefone <a href="tel:+553138251053">(31) 3825-1053</a> · WhatsApp <a href="https://wa.me/5531975103555" target="_blank" rel="noopener">(31) 97510-3555</a></p><div class="row"><a class="btn btn-e btn-sm" data-unit="centro" href="#agendar">Agendar nesta unidade</a><a class="btn btn-o btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+Juiz+de+Fora+60+Ipatinga+MG" target="_blank" rel="noopener">Ver como chegar</a></div></div></div></div></div>
+      <div class="item open" data-photo="0"><button type="button" aria-expanded="true">Unidade Canaã <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><div class="det"><div><div class="inner"><p>Rua dos Profetas, 210 · Canaã, Ipatinga-MG · CEP 35164-201</p><p>Telefone e WhatsApp <a href="tel:+5531996252944">(31) 99625-2944</a></p><p class="hours" style="margin-top:6px">Segunda a sexta, das 8h às 18h</p><div class="row"><a class="btn btn-e btn-sm" data-unit="canaa" href="#agendar">Agendar nesta unidade</a><a class="btn btn-o btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+dos+Profetas,+210+-+Canaã,+Ipatinga+-+MG,+35164-201" target="_blank" rel="noopener">Ver no mapa</a></div></div></div></div></div>
+      <div class="item" data-photo="1"><button type="button" aria-expanded="false">Unidade Centro <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><div class="det"><div><div class="inner"><p>Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade · Centro, Ipatinga-MG · CEP 35160-031</p><p>Telefone e WhatsApp <a href="tel:+5531975103555">(31) 97510-3555</a></p><p class="hours" style="margin-top:6px">Segunda a sexta, das 8h às 18h</p><div class="row"><a class="btn btn-e btn-sm" data-unit="centro" href="#agendar">Agendar nesta unidade</a><a class="btn btn-o btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+Juiz+de+Fora,+60,+sala+102+-+Centro,+Ipatinga+-+MG,+35160-031" target="_blank" rel="noopener">Ver no mapa</a></div></div></div></div></div>
       <div class="item"><a href="#convenios">Convênios aceitos <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="item"><a href="#duvidas">Perguntas frequentes <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
@@ -411,12 +105,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div><span class="fict" role="note">Dados e fotos fictícios, exemplo da proposta</span></div>
   </div>
   <div class="tabs" role="tablist" aria-label="Dentistas"><button class="tab" role="tab" id="tab0" aria-selected="true" aria-controls="tc0" tabindex="0" type="button">Dra. Helena Marques</button><button class="tab" role="tab" id="tab1" aria-selected="false" aria-controls="tc1" tabindex="-1" type="button">Dr. Rafael Moreira</button><button class="tab" role="tab" id="tab2" aria-selected="false" aria-controls="tc2" tabindex="-1" type="button">Dra. Camila Torres</button><button class="tab" role="tab" id="tab3" aria-selected="false" aria-controls="tc3" tabindex="-1" type="button">Dr. Lucas Ferreira</button></div>
-  <div class="tcards"><div class="tcard" role="tabpanel" id="tc0" aria-labelledby="tab0"><div class="av"><img src="img/d1.jpg" alt="Foto ilustrativa de Dra. Helena Marques" loading="lazy"></div><div class="body"><p class="meta">Ortodontia</p><h3>Dra. Helena Marques</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Canaã</dd><dt>Atendimento</dt><dd>seg, qua e sex</dd></dl><a class="btn btn-b" href="#agendar" data-unit="canaa" data-service="Ortodontia (aparelho)">Agendar com Dra. Helena <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div><div class="tcard" role="tabpanel" id="tc1" aria-labelledby="tab1" hidden><div class="av"><img src="img/d2.jpg" alt="Foto ilustrativa de Dr. Rafael Moreira" loading="lazy"></div><div class="body"><p class="meta">Implantes e cirurgias</p><h3>Dr. Rafael Moreira</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Centro</dd><dt>Atendimento</dt><dd>ter e qui</dd></dl><a class="btn btn-b" href="#agendar" data-unit="centro" data-service="Implantes dentários">Agendar com Dr. Rafael <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div><div class="tcard" role="tabpanel" id="tc2" aria-labelledby="tab2" hidden><div class="av"><img src="img/d3.jpg" alt="Foto ilustrativa de Dra. Camila Torres" loading="lazy"></div><div class="body"><p class="meta">Estética, dentística e prótese</p><h3>Dra. Camila Torres</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Canaã</dd><dt>Atendimento</dt><dd>seg a qui</dd></dl><a class="btn btn-b" href="#agendar" data-unit="canaa" data-service="Clareamento e estética">Agendar com Dra. Camila <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div><div class="tcard" role="tabpanel" id="tc3" aria-labelledby="tab3" hidden><div class="av"><img src="img/d4.jpg" alt="Foto ilustrativa de Dr. Lucas Ferreira" loading="lazy"></div><div class="body"><p class="meta">Endodontia e periodontia</p><h3>Dr. Lucas Ferreira</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Centro</dd><dt>Atendimento</dt><dd>seg, qua e sex</dd></dl><a class="btn btn-b" href="#agendar" data-unit="centro" data-service="Endodontia (canal)">Agendar com Dr. Lucas <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div>
+  <div class="tcards"><div class="tcard" role="tabpanel" id="tc0" aria-labelledby="tab0"><div class="av"><img src="img/d1.jpg" alt="Foto ilustrativa de Dra. Helena Marques" loading="lazy"></div><div class="body"><p class="meta">Ortodontia</p><h3>Dra. Helena Marques</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Canaã</dd><dt>Atendimento</dt><dd>seg, qua e sex</dd></dl><a class="btn btn-b" href="#agendar" data-unit="canaa">Agendar com Dra. Helena <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div><div class="tcard" role="tabpanel" id="tc1" aria-labelledby="tab1" hidden><div class="av"><img src="img/d2.jpg" alt="Foto ilustrativa de Dr. Rafael Moreira" loading="lazy"></div><div class="body"><p class="meta">Implantes e cirurgias</p><h3>Dr. Rafael Moreira</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Centro</dd><dt>Atendimento</dt><dd>ter e qui</dd></dl><a class="btn btn-b" href="#agendar" data-unit="centro">Agendar com Dr. Rafael <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div><div class="tcard" role="tabpanel" id="tc2" aria-labelledby="tab2" hidden><div class="av"><img src="img/d3.jpg" alt="Foto ilustrativa de Dra. Camila Torres" loading="lazy"></div><div class="body"><p class="meta">Estética, dentística e prótese</p><h3>Dra. Camila Torres</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Canaã</dd><dt>Atendimento</dt><dd>seg a qui</dd></dl><a class="btn btn-b" href="#agendar" data-unit="canaa">Agendar com Dra. Camila <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div><div class="tcard" role="tabpanel" id="tc3" aria-labelledby="tab3" hidden><div class="av"><img src="img/d4.jpg" alt="Foto ilustrativa de Dr. Lucas Ferreira" loading="lazy"></div><div class="body"><p class="meta">Endodontia e periodontia</p><h3>Dr. Lucas Ferreira</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>Centro</dd><dt>Atendimento</dt><dd>seg, qua e sex</dd></dl><a class="btn btn-b" href="#agendar" data-unit="centro">Agendar com Dr. Lucas <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div>
 </section>
 
 <section class="sec" id="duvidas" aria-labelledby="h-fq"><div class="wrap"><div class="faqs">
   <div><span class="eyebrow rv">Dúvidas</span><h2 class="rv" id="h-fq" style="--d:.08s">Perguntas <span class="it">frequentes</span></h2><p class="intro rv" style="--d:.16s">Não achou o que procurava? Fale com a recepção pelo WhatsApp.</p></div>
-  <div class="rv" style="--d:.1s"><details open><summary>Como agendo uma consulta?</summary><p>Preencha o formulário desta página: escolha a unidade, o serviço, o horário e se será por convênio ou particular. Ao enviar, abrimos o WhatsApp da unidade com a mensagem pronta, e a recepção confirma o horário com você.</p></details><details><summary>Qual unidade fica mais perto de mim?</summary><p>A unidade Canaã fica na Rua dos Profetas, 210. A unidade Centro fica na Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade. Os dois endereços têm o botão "Ver como chegar".</p></details><details><summary>A clínica atende crianças?</summary><p>Sim, a OdontoCenter tem atendimento pensado para crianças. Ao agendar, informe a idade da criança no campo de descrição.</p></details><details><summary>O que levo na primeira consulta?</summary><p>Leve um documento com foto e, se o atendimento for por convênio, a carteirinha. Se tiver radiografias ou exames anteriores, leve também.</p></details><details><summary>Posso marcar para outra pessoa, como meu filho ou meu pai?</summary><p>Pode. Informe o nome do paciente no formulário e use a descrição para contar a necessidade.</p></details><details><summary>Como remarco ou cancelo um horário?</summary><p>Pelo WhatsApp da unidade onde você agendou, com antecedência, para que o horário seja liberado para outro paciente.</p></details><details><summary>Como saber se tenho bruxismo?</summary><p>Dor de cabeça ao acordar, dor na mandíbula, dentes desgastados e sensibilidade são sinais comuns. Só o dentista confirma o diagnóstico, em avaliação.</p></details></div>
+  <div class="rv" style="--d:.1s"><details open><summary>Como agendo uma consulta?</summary><p>Preencha o formulário desta página: escolha a unidade, o serviço e se o atendimento será por convênio ou particular. Ao enviar, abrimos o WhatsApp da unidade com a mensagem pronta, e a recepção confirma o horário com você.</p></details><details><summary>Qual é o horário de atendimento?</summary><p>As duas unidades atendem de segunda a sexta, das 8h às 18h.</p></details><details><summary>Qual unidade fica mais perto de mim?</summary><p>A unidade Canaã fica na Rua dos Profetas, 210, bairro Canaã. A unidade Centro fica na Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade, no Centro de Ipatinga.</p></details><details><summary>A clínica atende crianças?</summary><p>Sim, a OdontoCenter tem atendimento pensado para crianças. Ao agendar, informe a idade da criança no campo de descrição.</p></details><details><summary>O que levo na primeira consulta?</summary><p>Leve um documento com foto e, se o atendimento for por convênio, a carteirinha. Se tiver radiografias ou exames anteriores, leve também.</p></details><details><summary>Posso marcar para outra pessoa?</summary><p>Pode. Informe o nome do paciente no formulário e use a descrição para contar a necessidade.</p></details><details><summary>Como remarco ou cancelo um horário?</summary><p>Pelo WhatsApp da unidade onde você agendou, com antecedência, para que o horário seja liberado para outro paciente.</p></details></div>
 </div></div></section>
 
 <section class="cta light" id="agendar" aria-labelledby="h-ag"><div class="wrap"><div class="cta-grid">
@@ -424,118 +118,40 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <span class="eyebrow rv">Agendamento</span>
     <h2 class="rv" id="h-ag" style="--d:.08s">Agende sua <span class="it">avaliação</span></h2>
     <p class="intro rv" style="--d:.16s">Preencha em menos de um minuto. Ao enviar, abrimos o WhatsApp da unidade com a mensagem pronta.</p>
-    <ol class="steps rv" style="--d:.22s"><li><span>01</span>Escolha a unidade, o serviço e o horário.</li><li><span>02</span>Informe se o atendimento é por convênio ou particular.</li><li><span>03</span>Envie pelo WhatsApp e a recepção confirma seu horário.</li></ol>
+    <ol class="steps rv" style="--d:.22s"><li><span>01</span>Escolha a unidade mais perto de você.</li><li><span>02</span>Informe se o atendimento é por convênio ou particular.</li><li><span>03</span>Envie pelo WhatsApp e a recepção confirma o seu horário.</li></ol>
+    <p class="hours rv" style="--d:.28s;margin-top:22px">Segunda a sexta, das 8h às 18h, nas duas unidades</p>
   </div>
   <form class="card rv" style="--d:.12s" id="form-agenda" novalidate>
-    <fieldset id="f-unit"><legend>1. Qual unidade?</legend>
-      <div class="choices units"><label><input type="radio" name="unidade" value="canaa"><span class="c">Canaã<small>Rua dos Profetas, 210</small></span></label><label><input type="radio" name="unidade" value="centro"><span class="c">Centro<small>Rua Juiz de Fora, 60, sala 102</small></span></label></div><p class="err">Escolha uma unidade.</p></fieldset>
+    <fieldset id="f-unit"><legend>1. Qual unidade?</legend><div class="choices units"><label><input type="radio" name="unidade" value="canaa"><span class="c">Canaã<small>Rua dos Profetas, 210</small></span></label><label><input type="radio" name="unidade" value="centro"><span class="c">Centro<small>Rua Juiz de Fora, 60, sala 102</small></span></label></div><p class="err">Escolha uma unidade.</p></fieldset>
     <div id="f-serv"><label class="lb" for="servico">2. Qual serviço você procura?</label><select id="servico" name="servico" required><option value="">Selecione</option><option value="Avaliação / primeira consulta">Avaliação / primeira consulta</option><option value="Ortodontia (aparelho)">Ortodontia (aparelho)</option><option value="Aparelho invisível">Aparelho invisível</option><option value="Manutenção de aparelho">Manutenção de aparelho</option><option value="Implantes dentários">Implantes dentários</option><option value="Clareamento e estética">Clareamento e estética</option><option value="Dentística e prótese">Dentística e prótese</option><option value="Periodontia (gengiva)">Periodontia (gengiva)</option><option value="Endodontia (canal)">Endodontia (canal)</option><option value="Cirurgias">Cirurgias</option><option value="Bruxismo">Bruxismo</option><option value="Outro / ainda não sei">Outro / ainda não sei</option></select><p class="err">Escolha um serviço.</p></div>
-    <fieldset id="f-hor"><legend>3. Horário preferencial</legend>
-      <div class="choices"><label><input type="radio" name="horario" value="Manhã"><span class="c">Manhã</span></label><label><input type="radio" name="horario" value="Tarde"><span class="c">Tarde</span></label><label><input type="radio" name="horario" value="Sem preferência"><span class="c">Sem preferência</span></label></div><p class="err">Escolha um horário.</p></fieldset>
-    <fieldset id="f-tipo"><legend>4. Como será o atendimento?</legend>
+    <fieldset id="f-tipo"><legend>3. Como será o atendimento?</legend>
       <div class="choices"><label><input type="radio" name="tipo" value="Convênio"><span class="c">Convênio</span></label><label><input type="radio" name="tipo" value="Particular"><span class="c">Particular</span></label></div><p class="err">Informe se é convênio ou particular.</p>
       <div class="conv" id="conv-box" hidden style="margin-top:14px"><label class="lb" for="convenio">Qual convênio?</label><select id="convenio" name="convenio"><option value="">Selecione</option><option value="LumarMetals">LumarMetals</option><option value="AAPI">AAPI</option><option value="Novo Oriente (plano de assistência familiar)">Novo Oriente (plano de assistência familiar)</option><option value="Cenibra">Cenibra</option><option value="Correios – Postal Saúde">Correios – Postal Saúde</option><option value="COPASS Saúde">COPASS Saúde</option><option value="Rede UNNA: Bradesco">Rede UNNA: Bradesco</option><option value="Rede UNNA: Unimed">Rede UNNA: Unimed</option><option value="Rede UNNA: Riachuelo (RCHLO)">Rede UNNA: Riachuelo (RCHLO)</option><option value="Rede UNNA: OdontoPrev">Rede UNNA: OdontoPrev</option><option value="Brasil Dental">Brasil Dental</option><option value="Rede Dental">Rede Dental</option><option value="Prívian">Prívian</option><option value="Odontoserv">Odontoserv</option><option value="SEPAO">SEPAO</option><option value="Prontodente">Prontodente</option><option value="IBI">IBI</option><option value="DM Odonto">DM Odonto</option><option value="Outro convênio">Outro convênio</option></select><p class="err">Escolha o convênio.</p></div></fieldset>
-    <div id="f-nome"><label class="lb" for="nome">5. Nome do paciente</label><input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Nome completo"><p class="err">Informe o nome do paciente.</p></div>
-    <div><label class="lb" for="desc">6. Conte o que você precisa <span class="opt">(opcional)</span></label><textarea id="desc" name="desc" placeholder="Ex.: dor no dente, orçamento de aparelho, consulta para meu filho de 8 anos"></textarea></div>
-    <div class="submit"><a class="btn btn-wa" id="send" href="#agendar" target="_blank" rel="noopener" role="button"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Enviar para o WhatsApp</a><p>Abre a conversa com a unidade escolhida, com a mensagem pronta. Nada é enviado até você tocar em enviar no WhatsApp.</p></div>
+    <div id="f-nome"><label class="lb" for="nome">4. Nome do paciente</label><input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Nome completo"><p class="err">Informe o nome do paciente.</p></div>
+    <div><label class="lb" for="desc">5. Conte o que você precisa <span class="opt">(opcional)</span></label><textarea id="desc" name="desc" placeholder="Ex.: dor no dente, orçamento, consulta para meu filho de 8 anos"></textarea></div>
+    <div class="submit"><a class="btn btn-wa" id="send" href="#agendar" target="_blank" rel="noopener" role="button"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Enviar para o WhatsApp</a><p>Abre a conversa com a unidade escolhida, com a mensagem pronta. Atendimento segunda a sexta, das 8h às 18h.</p></div>
   </form>
 </div></div></section>
-</main>
 
+</main>
 <footer>
   <div class="fcols">
-    <div><h4>Especialidades</h4><a href="#especialidades">Ortodontia</a><a href="#especialidades">Implantes dentários</a><a href="#especialidades">Estética e clareamento</a><a href="#especialidades">Bruxismo</a><a href="#especialidades">Dentística e prótese</a><a href="#especialidades">Periodontia</a><a href="#especialidades">Endodontia</a><a href="#especialidades">Cirurgias</a></div>
-    <div><h4>Unidades</h4><p>Canaã<br><span style="color:var(--dull)">Rua dos Profetas, 210<br>(31) 3827-7739</span></p><p style="margin-top:14px">Centro<br><span style="color:var(--dull)">Rua Juiz de Fora, 60, sala 102<br>Ed. Sandra Andrade<br>(31) 3825-1053</span></p></div>
-    <div><h4>OdontoCenter</h4><a href="#equipe">Equipe</a><a href="#convenios">Convênios</a><a href="#estrutura">Estrutura</a><a href="#duvidas">Perguntas frequentes</a><a href="#agendar">Agendar avaliação</a><a href="https://www.instagram.com/odontocenter.ipa/" target="_blank" rel="noopener">Instagram</a></div>
-    <div class="fcard"><p>Fale com a recepção pelo WhatsApp</p><a class="btn btn-wa" data-wa="canaa" href="#agendar"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Unidade Canaã</a><a class="btn btn-wa" data-wa="centro" href="#agendar"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Unidade Centro</a></div>
+    <div><h4>Especialidades</h4><a href="especialidades/ortodontia-ipatinga.html">Ortodontia</a><a href="especialidades/implante-dentario-ipatinga.html">Implantes dentários</a><a href="especialidades/clareamento-estetica-dental-ipatinga.html">Estética e clareamento</a><a href="especialidades/bruxismo-ipatinga.html">Bruxismo</a><a href="especialidades/dentistica-protese-ipatinga.html">Dentística e prótese</a><a href="especialidades/periodontia-tratamento-gengiva-ipatinga.html">Periodontia</a><a href="especialidades/tratamento-de-canal-endodontia-ipatinga.html">Endodontia</a><a href="especialidades/cirurgia-odontologica-ipatinga.html">Cirurgias</a></div>
+    <div><h4>Unidades</h4><p style="margin-top:0px">Canaã<br><span style="color:var(--dull)">Rua dos Profetas, 210<br>Canaã, Ipatinga-MG · CEP 35164-201<br>(31) 99625-2944</span></p><p style="margin-top:14px">Centro<br><span style="color:var(--dull)">Rua Juiz de Fora, 60, sala 102<br>Edifício Sandra Andrade<br>Centro, Ipatinga-MG · CEP 35160-031<br>(31) 97510-3555</span></p><p class="hours" style="margin-top:14px">Segunda a sexta, das 8h às 18h</p></div>
+    <div><h4>OdontoCenter</h4><a href="#equipe">Equipe</a><a href="#convenios">Convênios</a><a href="#unidades">Unidades</a><a href="#duvidas">Perguntas frequentes</a><a href="#agendar">Agendar avaliação</a><a href="politica-de-privacidade.html">Política de privacidade</a><a href="https://www.instagram.com/odontocenter.ipa/" target="_blank" rel="noopener">Instagram</a></div>
+    <div class="fcard"><p>Fale com a recepção pelo WhatsApp</p><a class="btn btn-wa" data-wa="canaa" href="#"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Unidade Canaã</a><a class="btn btn-wa" data-wa="centro" href="#"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg> Unidade Centro</a></div>
   </div>
   <div class="fbig" aria-hidden="true"><svg class="foot" viewBox="0 0 505.2 57.2" role="img" aria-label="OdontoCenter"><path fill="currentColor" fill-rule="evenodd" d="M0 25.6Q0 19.1 3 13.8Q6 8.6 11.2 5.7Q16.4 2.8 22.6 2.8Q29 2.8 34.1 5.7Q39.3 8.6 42.3 13.8Q45.2 19 45.2 25.6Q45.2 32.2 42.3 37.4Q39.3 42.7 34.1 45.6Q29 48.5 22.6 48.5Q16.4 48.5 11.2 45.6Q6 42.7 3 37.4Q0 32.2 0 25.6ZM39.2 25.6Q39.2 20.2 37.1 16.2Q34.9 12.2 31.2 10Q27.4 7.8 22.6 7.8Q17.8 7.8 14.1 10Q10.3 12.2 8.2 16.2Q6 20.2 6 25.6Q6 31 8.2 35Q10.3 39.1 14.1 41.2Q17.9 43.4 22.6 43.4Q27.3 43.4 31.1 41.2Q34.9 39.1 37.1 35Q39.2 31 39.2 25.6ZM92.5 25.8Q92.5 32.8 89.6 37.8Q86.7 42.9 81.3 45.6Q75.9 48.2 68.5 48.2H54.5V3.2H68.5Q75.9 3.2 81.3 6Q86.7 8.7 89.6 13.8Q92.5 18.9 92.5 25.8ZM86.5 25.8Q86.5 17.5 81.9 12.7Q77.2 8 68.5 8H60.4V43.4H68.5Q77.3 43.4 81.9 38.8Q86.5 34.2 86.5 25.8ZM190 48.2H184L159.8 12.5V48.2H153.8V3.2H159.8L184 39V3.2H190ZM227 3.2V8H215.4V48.2H209.9V8H198.2V3.2ZM231.2 25.6Q231.2 19.1 234.3 13.8Q237.3 8.6 242.4 5.7Q247.6 2.8 253.9 2.8Q260.2 2.8 265.4 5.7Q270.6 8.6 273.5 13.8Q276.5 19 276.5 25.6Q276.5 32.2 273.5 37.4Q270.6 42.7 265.4 45.6Q260.2 48.5 253.9 48.5Q247.6 48.5 242.4 45.6Q237.3 42.7 234.3 37.4Q231.2 32.2 231.2 25.6ZM270.5 25.6Q270.5 20.2 268.3 16.2Q266.2 12.2 262.4 10Q258.7 7.8 253.9 7.8Q249.1 7.8 245.3 10Q241.6 12.2 239.4 16.2Q237.3 20.2 237.3 25.6Q237.3 31 239.4 35Q241.6 39.1 245.4 41.2Q249.2 43.4 253.9 43.4Q258.6 43.4 262.4 41.2Q266.2 39.1 268.3 35Q270.5 31 270.5 25.6ZM293.6 10.2Q300.7 10.2 305.7 14.6Q310.8 18.9 312.5 26.4H301.8Q300.6 23.5 298.4 22Q296.2 20.5 293.5 20.5Q289 20.5 286.2 24.1Q283.4 27.7 283.4 33.8Q283.4 39.8 286.2 43.4Q289 47.1 293.5 47.1Q296.2 47.1 298.4 45.5Q300.6 44 301.8 41.1H312.5Q310.8 48.6 305.7 52.9Q300.7 57.2 293.6 57.2Q287.8 57.2 283.2 54.3Q278.6 51.3 276.1 45.9Q273.5 40.6 273.5 33.8Q273.5 26.9 276.1 21.6Q278.6 16.2 283.2 13.2Q287.8 10.2 293.6 10.2ZM331.9 19.6V28.8H347.2V37.4H331.9V47.4H349.2V56.2H320.5V10.8H349.2V19.6ZM393.5 56.5H383.4L366.6 28.3V56.5H356.5V10.8H366.6L383.4 39.1V10.8H393.5ZM430 11.2V20.1H419.7V56.5H410.3V20.1H400V11.2ZM447.8 19.7V28.9H463V37.5H447.8V47.6H465V56.5H436.5V10.8H465V19.7ZM493.9 56.5 485.3 39.3H482.8V56.5H472.8V11H489.7Q494.6 11 498 12.9Q501.5 14.8 503.2 18Q504.9 21.3 504.9 25.3Q504.9 29.9 502.6 33.4Q500.2 37 495.7 38.5L505.2 56.5ZM482.8 31.5H489.1Q491.9 31.5 493.2 30Q494.6 28.5 494.6 25.8Q494.6 23.2 493.2 21.7Q491.9 20.2 489.1 20.2H482.8ZM96.0,16.0 C96.0,4.6 107.3,0.0 116.7,4.6 C118.6,5.7 121.1,5.7 123.0,4.6 C132.4,0.0 143.8,4.6 143.8,16.0 C143.8,26.2 137.5,30.8 134.9,41.6 C133.7,50.2 129.9,54.8 126.2,54.8 C122.4,54.8 121.1,45.6 119.9,39.9 C118.6,45.6 117.3,54.8 113.6,54.8 C109.8,54.8 106.0,50.2 104.8,41.6 C102.3,30.8 96.0,26.2 96.0,16.0 Z"/></svg></div>
-  <div class="legal"><span>© 2026 OdontoCenter · Centro Odontológico Especializado Ltda · CNPJ 04.598.376/0001-09</span><span><b>Responsável técnico:</b> Dr. Rafael Moreira · CRO-MG 00000 (dado fictício da proposta)</span><span>Política de privacidade · Cookies</span></div>
+  <div class="legal"><span>© 2026 OdontoCenter · Centro Odontológico Especializado Ltda · CNPJ 04.598.376/0001-09</span><span><b>Responsável técnico:</b> Dr. Rafael Moreira · CRO-MG 00000 (dado fictício da proposta)</span><span><a href="politica-de-privacidade.html">Política de privacidade e cookies</a></span></div>
 </footer>
-
 <div class="fab" id="fab">
   <div class="fab-pop" id="fab-pop" role="dialog" aria-label="Escolha a unidade para conversar no WhatsApp"><h2>Falar no WhatsApp</h2><p>Para qual unidade você quer mandar mensagem?</p>
     <a class="opt-u" data-fab="canaa" href="#" target="_blank" rel="noopener"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg><span>Unidade Canaã<small>Rua dos Profetas, 210</small></span></a>
     <a class="opt-u" data-fab="centro" href="#" target="_blank" rel="noopener"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg><span>Unidade Centro<small>Rua Juiz de Fora, 60, sala 102</small></span></a></div>
   <button class="fab-btn" id="fab-btn" type="button" aria-label="Falar no WhatsApp: escolher unidade" aria-expanded="false" aria-controls="fab-pop"><svg class="wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.3 14.98l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.76.35-.26.29-1 1-1 2.43s1.03 2.8 1.17 3c.15.2 2.03 3.23 5 4.4 2.47.97 2.97.78 3.5.73.54-.05 1.73-.7 1.97-1.39.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.96-.26-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.65-1.6-.9-2.18-.23-.56-.47-.48-.65-.49z"/></svg></button>
 </div>
-
-<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Dentist", "name": "OdontoCenter Canaã", "url": "https://odontocenter.com.br/", "telephone": "+553138277739", "address": {"@type": "PostalAddress", "streetAddress": "Rua dos Profetas, 210", "addressLocality": "Ipatinga", "addressRegion": "MG", "addressCountry": "BR"}, "foundingDate": "2001-08-09"}, {"@context": "https://schema.org", "@type": "Dentist", "name": "OdontoCenter Centro", "url": "https://odontocenter.com.br/", "telephone": "+553138251053", "address": {"@type": "PostalAddress", "streetAddress": "Rua Juiz de Fora, 60, sala 102", "addressLocality": "Ipatinga", "addressRegion": "MG", "addressCountry": "BR"}, "foundingDate": "2001-08-09"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Como agendo uma consulta?", "acceptedAnswer": {"@type": "Answer", "text": "Preencha o formulário desta página: escolha a unidade, o serviço, o horário e se será por convênio ou particular. Ao enviar, abrimos o WhatsApp da unidade com a mensagem pronta, e a recepção confirma o horário com você."}}, {"@type": "Question", "name": "Qual unidade fica mais perto de mim?", "acceptedAnswer": {"@type": "Answer", "text": "A unidade Canaã fica na Rua dos Profetas, 210. A unidade Centro fica na Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade. Os dois endereços têm o botão \"Ver como chegar\"."}}, {"@type": "Question", "name": "A clínica atende crianças?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, a OdontoCenter tem atendimento pensado para crianças. Ao agendar, informe a idade da criança no campo de descrição."}}, {"@type": "Question", "name": "O que levo na primeira consulta?", "acceptedAnswer": {"@type": "Answer", "text": "Leve um documento com foto e, se o atendimento for por convênio, a carteirinha. Se tiver radiografias ou exames anteriores, leve também."}}, {"@type": "Question", "name": "Posso marcar para outra pessoa, como meu filho ou meu pai?", "acceptedAnswer": {"@type": "Answer", "text": "Pode. Informe o nome do paciente no formulário e use a descrição para contar a necessidade."}}, {"@type": "Question", "name": "Como remarco ou cancelo um horário?", "acceptedAnswer": {"@type": "Answer", "text": "Pelo WhatsApp da unidade onde você agendou, com antecedência, para que o horário seja liberado para outro paciente."}}, {"@type": "Question", "name": "Como saber se tenho bruxismo?", "acceptedAnswer": {"@type": "Answer", "text": "Dor de cabeça ao acordar, dor na mandíbula, dentes desgastados e sensibilidade são sinais comuns. Só o dentista confirma o diagnóstico, em avaliação."}}]}]</script>
-<script>
-(function(){
-  var root=document.documentElement,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-  var vh=function(){return window.innerHeight||800};
-  // ---------- animações
-  if(!reduce&&'IntersectionObserver' in window){
-    root.classList.add('anim');
-    var els=$$('.rv,.rv-img,.ring');
-    els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<vh()*0.98&&r.bottom>0)el.classList.add('in')});
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('ring'))count(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.12});
-    els.forEach(function(el){if(!el.classList.contains('in'))io.observe(el)});
-    requestAnimationFrame(function(){requestAnimationFrame(function(){$('.hero').classList.add('ready')})});
-  }else{$('.hero').classList.add('ready')}
-  function count(ring){var s=$('[data-count]',ring);if(!s)return;var to=+s.getAttribute('data-count'),t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-p,3);s.textContent=Math.round(to*e);if(p<1)requestAnimationFrame(step)}s.textContent='0';requestAnimationFrame(step)}
-  // scroll: faixa fixa, parallax, menu fixo
-  var pin=$('.pin'),media=$('.pin-media'),pcopy=$('.pin-copy'),stick=$('#stick'),hero=$('.hero'),pars=$$('[data-par]'),ticking=false;
-  function onScroll(){ticking=false;var h=vh();
-    if(root.classList.contains('anim')){
-      var r=pin.getBoundingClientRect(),tot=r.height-h,p=Math.min(1,Math.max(0,-r.top/(tot||1))),q=Math.min(1,p/0.6);
-      var e=1-Math.pow(1-q,2);
-      media.style.setProperty('--iy',(14*(1-e))+'%');media.style.setProperty('--ix',(18*(1-e))+'%');media.style.setProperty('--ir',(28*(1-e))+'px');
-      media.style.setProperty('--sc',(1.18-0.18*e).toFixed(3));media.style.setProperty('--ov',(0.15+0.45*e).toFixed(3));
-      pcopy.style.setProperty('--op',Math.min(1,Math.max(0,(p-0.35)/0.3)).toFixed(3));
-      pars.forEach(function(img){var b=img.parentNode.getBoundingClientRect();if(b.bottom<0||b.top>h)return;var k=((b.top+b.height/2)-h/2)/h;img.style.transform='translate3d(0,'+(k*-6).toFixed(2)+'%,0)'});
-    }
-    var show=hero.getBoundingClientRect().bottom<0;stick.classList.toggle('show',show);stick.setAttribute('aria-hidden',show?'false':'true');
-    $$('a,button',stick).forEach(function(x){x.tabIndex=show?0:-1});
-  }
-  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
-  window.addEventListener('resize',onScroll);onScroll();
-  // ---------- formulário → WhatsApp
-  var UNITS={canaa:{nome:'Canaã',num:'5531996252944'},centro:{nome:'Centro',num:'5531975103555'}};
-  function wa(u,text){return 'https://wa.me/'+UNITS[u].num+'?text='+encodeURIComponent(text)}
-  var form=$('#form-agenda');
-  function clear(el){el&&el.classList.remove('invalid')}
-  function setUnit(u){var r=$('input[name=unidade][value='+u+']');if(r){r.checked=true;clear($('#f-unit'))}}
-  function goForm(o){o=o||{};if(o.unit)setUnit(o.unit);if(o.service){var s=$('#servico');for(var i=0;i<s.options.length;i++){if(s.options[i].value===o.service){s.value=o.service;clear($('#f-serv'))}}}}
-  $$('[data-service]').forEach(function(a){a.addEventListener('click',function(){goForm({service:a.getAttribute('data-service'),unit:a.getAttribute('data-unit')})})});
-  $$('a[data-unit]').forEach(function(a){a.addEventListener('click',function(){goForm({unit:a.getAttribute('data-unit')})})});
-  $$('[data-wa]').forEach(function(a){var u=a.getAttribute('data-wa');a.href=wa(u,'Olá! Vim pelo site da OdontoCenter e gostaria de falar com a unidade '+UNITS[u].nome+'.');a.target='_blank';a.rel='noopener'});
-  $$('input[name=tipo]').forEach(function(r){r.addEventListener('change',function(){$('#conv-box').hidden=(r.value!=='Convênio'||!r.checked);clear($('#f-tipo'))})});
-  $$('input,select',form).forEach(function(i){i.addEventListener('change',function(){clear(i.closest('fieldset,#f-serv,#f-nome,.conv'))});i.addEventListener('input',function(){clear(i.closest('#f-nome'))})});
-  function val(n){var c=$('input[name='+n+']:checked');return c?c.value:''}
-  // O botão é um link real: o navegador abre o WhatsApp no primeiro clique, sem janela bloqueada nem segundo botão.
-  var send=$('#send');
-  function build(mark){
-    var unit=val('unidade'),serv=$('#servico').value,hor=val('horario'),tipo=val('tipo'),conv=$('#convenio').value,nome=$('#nome').value.trim(),desc=$('#desc').value.trim(),bad=[];
-    function chk(ok,el){if(!ok){bad.push(el);if(mark)el.classList.add('invalid')}else clear(el)}
-    chk(!!unit,$('#f-unit'));chk(!!serv,$('#f-serv'));chk(!!hor,$('#f-hor'));chk(!!tipo,$('#f-tipo'));
-    chk(tipo!=='Convênio'||!!conv,$('.conv'));if(mark&&tipo==='Convênio'&&!conv){$('#f-tipo').classList.add('invalid')}
-    chk(nome.length>1,$('#f-nome'));
-    if(bad.length)return {bad:bad};
-    var tx='Olá! Vim pelo site da OdontoCenter e gostaria de agendar.\n\n*Unidade:* '+UNITS[unit].nome+'\n*Serviço:* '+serv+'\n*Horário preferencial:* '+hor+'\n*Atendimento:* '+(tipo==='Convênio'?'Convênio ('+conv+')':'Particular')+'\n*Paciente:* '+nome+(desc?'\n*Observações:* '+desc:'')+'\n\nPodem confirmar um horário? Obrigado!';
-    return {url:wa(unit,tx)};
-  }
-  function sync(){var r=build(false);send.href=r.url||'#agendar'}
-  form.addEventListener('input',sync);form.addEventListener('change',sync);
-  send.addEventListener('click',function(e){var r=build(true);if(r.bad){e.preventDefault();var f=r.bad[0];f.scrollIntoView({block:'center'});var fe=$('input,select',f);if(fe)fe.focus({preventScroll:true});return}send.href=r.url});
-  form.addEventListener('submit',function(e){e.preventDefault();send.click()});
-  // ---------- aviso, unidades, abas, WhatsApp flutuante
-  $('#announce-x').addEventListener('click',function(){$('#announce').hidden=true});
-  var photos=$$('.photos img');
-  $$('.item > button').forEach(function(b){b.addEventListener('click',function(){var it=b.parentNode,o=!it.classList.contains('open');$$('.item.open').forEach(function(x){x.classList.remove('open');$('button',x).setAttribute('aria-expanded','false')});if(o){it.classList.add('open');b.setAttribute('aria-expanded','true');var i=+it.getAttribute('data-photo');photos.forEach(function(p,k){p.classList.toggle('on',k===i)})}})});
-  var tabs=$$('.tab');
-  function selTab(t){tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');x.tabIndex=x===t?0:-1});$$('.tcard').forEach(function(c){c.hidden=c.id!==t.getAttribute('aria-controls')})}
-  tabs.forEach(function(t,i){t.addEventListener('click',function(){selTab(t)});t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:-1;if(n>=0){n=(n+tabs.length)%tabs.length;tabs[n].focus();selTab(tabs[n])}})});
-  var fab=$('#fab-btn'),pop=$('#fab-pop');
-  function toggle(o){pop.classList.toggle('open',o);fab.setAttribute('aria-expanded',o?'true':'false')}
-  $$('[data-fab]').forEach(function(a){var u=a.getAttribute('data-fab');a.href=wa(u,'Olá! Vim pelo site da OdontoCenter e gostaria de falar com a unidade '+UNITS[u].nome+'.');a.addEventListener('click',function(){toggle(false)})});
-  fab.addEventListener('click',function(){toggle(!pop.classList.contains('open'))});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&pop.classList.contains('open')){toggle(false);fab.focus()}});
-  document.addEventListener('click',function(e){if(!$('#fab').contains(e.target))toggle(false)});
-})();
-</script>
-
+<div class="cookie" id="cookie" role="region" aria-label="Aviso de cookies"><h2>Sua privacidade</h2><p>Usamos apenas o armazenamento essencial para o funcionamento do site. Saiba mais na nossa <a href="politica-de-privacidade.html">política de privacidade</a>.</p><div class="row"><button class="btn btn-b" type="button" data-ck="ok">Entendi</button><button class="btn btn-ob" type="button" data-ck="essential">Apenas essenciais</button></div></div>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Dentist", "name": "OdontoCenter Canaã", "url": "https://odontocenter.com.br/", "telephone": "+5531996252944", "foundingDate": "2001-08-09", "priceRange": "$$", "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+dos+Profetas,+210+-+Canaã,+Ipatinga+-+MG,+35164-201", "address": {"@type": "PostalAddress", "streetAddress": "Rua dos Profetas, 210 - Canaã", "addressLocality": "Ipatinga", "addressRegion": "MG", "postalCode": "35164-201", "addressCountry": "BR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}], "sameAs": ["https://www.instagram.com/odontocenter.ipa/"]}, {"@context": "https://schema.org", "@type": "Dentist", "name": "OdontoCenter Centro", "url": "https://odontocenter.com.br/", "telephone": "+5531975103555", "foundingDate": "2001-08-09", "priceRange": "$$", "hasMap": "https://www.google.com/maps/search/?api=1&query=Rua+Juiz+de+Fora,+60,+sala+102+-+Centro,+Ipatinga+-+MG,+35160-031", "address": {"@type": "PostalAddress", "streetAddress": "Rua Juiz de Fora, 60, sala 102 - Centro", "addressLocality": "Ipatinga", "addressRegion": "MG", "postalCode": "35160-031", "addressCountry": "BR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}], "sameAs": ["https://www.instagram.com/odontocenter.ipa/"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Como agendo uma consulta?", "acceptedAnswer": {"@type": "Answer", "text": "Preencha o formulário desta página: escolha a unidade, o serviço e se o atendimento será por convênio ou particular. Ao enviar, abrimos o WhatsApp da unidade com a mensagem pronta, e a recepção confirma o horário com você."}}, {"@type": "Question", "name": "Qual é o horário de atendimento?", "acceptedAnswer": {"@type": "Answer", "text": "As duas unidades atendem de segunda a sexta, das 8h às 18h."}}, {"@type": "Question", "name": "Qual unidade fica mais perto de mim?", "acceptedAnswer": {"@type": "Answer", "text": "A unidade Canaã fica na Rua dos Profetas, 210, bairro Canaã. A unidade Centro fica na Rua Juiz de Fora, 60, sala 102, Edifício Sandra Andrade, no Centro de Ipatinga."}}, {"@type": "Question", "name": "A clínica atende crianças?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, a OdontoCenter tem atendimento pensado para crianças. Ao agendar, informe a idade da criança no campo de descrição."}}, {"@type": "Question", "name": "O que levo na primeira consulta?", "acceptedAnswer": {"@type": "Answer", "text": "Leve um documento com foto e, se o atendimento for por convênio, a carteirinha. Se tiver radiografias ou exames anteriores, leve também."}}, {"@type": "Question", "name": "Posso marcar para outra pessoa?", "acceptedAnswer": {"@type": "Answer", "text": "Pode. Informe o nome do paciente no formulário e use a descrição para contar a necessidade."}}, {"@type": "Question", "name": "Como remarco ou cancelo um horário?", "acceptedAnswer": {"@type": "Answer", "text": "Pelo WhatsApp da unidade onde você agendou, com antecedência, para que o horário seja liberado para outro paciente."}}]}]</script>
+<script src="assets/site.js"></script>
 </body>
 </html>
