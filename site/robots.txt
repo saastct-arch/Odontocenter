@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://odontocenter.vercel.app/sitemap.xml
+Sitemap: https://odontocenter-ipatinga.vercel.app/sitemap.xml

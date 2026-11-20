@@ -10,7 +10,7 @@ AR = '<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap">'
 HOURS = 'Segunda a sexta, das 8h às 18h'
 # Endereço público do site. Trocar pelo domínio definitivo quando estiver registrado e rodar o build de novo.
-SITE_URL = 'https://odontocenter.vercel.app'
+SITE_URL = 'https://odontocenter-ipatinga.vercel.app'
 U = {
  'canaa': dict(nome='Canaã', rua='Rua dos Profetas, 210', bairro='Canaã', cep='35164-201', fone='(31) 99625-2944', tel='+5531996252944', extra=''),
  'centro': dict(nome='Centro', rua='Rua Juiz de Fora, 60, sala 102', bairro='Centro', cep='35160-031', fone='(31) 97510-3555', tel='+5531975103555', extra='Edifício Sandra Andrade'),
@@ -38,7 +38,7 @@ def drawer(pre, home):
             + f'<div class="dsub">{sub}</div><div class="dbot"><a class="btn btn-wa" data-wa="canaa" href="#">{WA} WhatsApp Canaã</a><a class="btn btn-wa" data-wa="centro" href="#">{WA} WhatsApp Centro</a><span class="hours">{HOURS}</span></div></div>')
 
 def announce(pre):
-    return f'<div class="announce" id="announce"><span><b style="font-weight:500">Site proposta</b> · equipe, CRO e fotos são ilustrativos. Novo: atendemos a Rede UNNA. <a href="{pre}index.html#convenios">Ver convênios</a></span><button type="button" id="announce-x" aria-label="Fechar aviso">×</button></div>'
+    return f'<div class="announce" id="announce"><span><b style="font-weight:500">Site proposta</b> · equipe, CRO e fotos são ilustrativos. Conheça os <a href="{pre}index.html#convenios">convênios aceitos</a>.</span><button type="button" id="announce-x" aria-label="Fechar aviso">×</button></div>'
 
 def form(service=None):
     if service:
@@ -174,7 +174,7 @@ def home(pre, full):
         tc += (f'<div class="tcard" role="tabpanel" id="tc{i}" aria-labelledby="tab{i}"{"" if i == 0 else " hidden"}><div class="av"><img src="{pre}img/{im}.jpg" alt="Foto ilustrativa de {n}" loading="lazy"></div>'
                f'<div class="body"><p class="meta">{e}</p><h3>{n}</h3><dl><dt>Registro</dt><dd>CRO-MG 00000 <em>(fictício)</em></dd><dt>Unidade</dt><dd>{u}</dd><dt>Atendimento</dt><dd>{d}</dd></dl>'
                f'<a class="btn btn-b" href="#agendar" data-unit="{uk}">Agendar com {n.split()[0]} {n.split()[1]} {AR}</a></div></div>')
-    rep = dict(ar=AR, logos=logos, logos_dup=logos.replace('<div>', '<div aria-hidden="true">'), tabs=tabs, tcards=tc, wa=WA, navinner=nav(pre, True), faq_html=faq_html(HOME_FAQ))
+    rep = dict(tooth_big='<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M7.57,43.25 C 3.04,26.35 19.18,14.78 35.95,17.53 C 39.40,18.42 43.39,17.35 45.93,14.86 C 59.08,4.09 78.84,6.04 83.37,22.94 C 87.45,38.15 79.28,47.59 79.60,64.72 C 81.00,77.93 76.83,86.29 70.84,87.90 C 64.86,89.50 59.24,76.51 54.98,68.59 C 55.25,77.58 56.88,91.64 50.90,93.24 C 44.91,94.84 37.12,89.69 31.73,77.54 C 23.43,62.55 11.65,58.46 7.57,43.25Z"/></svg>', ar=AR, logos=logos, logos_dup=logos.replace('<div>', '<div aria-hidden="true">'), tabs=tabs, tcards=tc, wa=WA, navinner=nav(pre, True), faq_html=faq_html(HOME_FAQ))
     m = re.sub(r'\{\{img:(\w+)\}\}', lambda x: f'{pre}img/{x.group(1)}.jpg', m)
     for k, v in rep.items(): m = m.replace('{{' + k + '}}', v)
     m = m.replace('<div class="meta rv" style="--d:.8s"><div><b>25 anos</b>em Ipatinga</div>', '<div class="meta rv" style="--d:.8s"><div><b>25 anos</b>em Ipatinga</div>')
