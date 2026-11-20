@@ -438,3 +438,143 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @keyframes cvmove{to{transform:translateX(-50%)}}
 @media(max-width:560px){.cv-track .lg{width:200px;min-height:116px}.cv-track .wm{transform:scale(.85)}}
 @media(prefers-reduced-motion:reduce){.cv-track{animation:none;flex-wrap:wrap;width:auto}.cv-track .lg[aria-hidden]{display:none}}
+
+/* ===================== celular: layout mais compacto ===================== */
+@media(max-width:600px){
+  :root{--margin:1rem;--r-med:18px;--r-main:12px;--gap:10px}
+  body{font-size:15px}
+  .announce{font-size:12.5px;padding:8px 44px 8px 14px;text-align:left}
+  .hero,.panel,.stats,.team,.cta,footer,.doc-hero,.doc-body{margin-left:8px;margin-right:8px}
+  .hero{margin-top:8px;min-height:560px}
+  .hero.sub-hero{min-height:520px}
+  .hero .navcard{top:10px;width:calc(100% - 20px);padding:8px 8px 8px 12px}
+  .navcard .logo{height:20px}
+  .hero-copy{padding:96px 18px 28px}
+  .hero h1.hero-eyebrow,.hero-eyebrow{font-size:11px;margin-bottom:14px}
+  .hero .tagline,.hero h1:not(.hero-eyebrow){font-size:40px}
+  .hero .sub{font-size:15.5px;margin:16px 0 20px}
+  .back{margin-bottom:18px;padding:9px 12px;font-size:13px}
+  .btn{min-height:46px;padding:0 20px;font-size:15.5px}
+  .hero .row .btn{flex:1 1 auto}
+
+  .sec{padding-block:56px}
+  .sec-head{gap:12px;margin-bottom:28px}
+  .sec-head h2,.panel h2,.split h2,.faqs h2,.cta h2,.team h2,.cv-head h2,.about h2,.stats-head h2{font-size:31px;line-height:1.05}
+  .sec-head p,.panel .intro,.split .intro,.faqs .intro,.cta .intro,.team .sub,.cv-head p,.about p{font-size:15px}
+  .eyebrow{font-size:11px}
+
+  /* especialidades: carrossel deslizante em vez de 4 cartões empilhados */
+  .pc{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 -1rem;padding:0 1rem 4px;scrollbar-width:none}
+  .pc::-webkit-scrollbar{display:none}
+  .pcard{flex:0 0 74%;aspect-ratio:3/3.9;scroll-snap-align:start}
+  .pcard h3{font-size:22px}.pcard p{font-size:13px}
+  .pcard .go{width:34px;height:34px;right:14px;bottom:16px}
+  .pcard .tx{left:16px;right:56px;bottom:16px}
+  .lc{grid-template-columns:1fr 1fr;gap:8px}
+  .lcard{flex-direction:column;align-items:flex-start;gap:10px;padding:8px}
+  .lcard .th{width:100%;height:76px}
+  .lcard h3{font-size:15.5px}.lcard p{font-size:12px}
+
+  /* painel bento */
+  .panel{padding:36px 16px}
+  .panel-head{margin-bottom:24px;gap:12px}
+  .bento{gap:8px}
+  .tile{padding:16px;min-height:0}
+  .tile h3{font-size:18px}.tile p{font-size:13px;margin-top:6px}
+  .t1{height:280px!important}.t1 .bot{left:16px;right:16px;bottom:16px}
+  .bento .tile:not(.t1){min-height:150px}
+  .t3 .avs img{width:40px;height:40px}
+  .t4 .kid{width:110px;height:110px}
+
+  /* faixa que se expande */
+  .pin{height:140vh}
+  .pin-copy h2{font-size:32px}.pin-copy p{font-size:15px;margin-top:14px}
+
+  /* números */
+  .stats{padding-top:44px}
+  .stats .sec-head{margin-bottom:24px}
+  .ring{padding:18px 8px 26px}
+  .ring .c{width:min(100%,136px)}
+  .ring strong{font-size:38px}
+  .ring span{font-size:11.5px;margin-top:6px}
+  .ring .in-t{padding:16%}
+
+  /* unidades */
+  .split h2{margin:14px 0 12px}
+  .split .intro{margin-bottom:22px}
+  .photos{min-height:220px}
+  .item>button,.item>a{font-size:20px;padding:15px 0}
+  .det .inner{font-size:14.5px;padding-bottom:18px}
+  .det .row .btn{flex:1 1 auto}
+  .split .btn{margin-top:24px;width:100%}
+
+  /* convênios */
+  .trust{padding-block:56px}
+  .cv-head{margin-bottom:24px}
+  .cv-track .lg{width:168px;min-height:92px;padding:14px 10px}
+  .cv-track .wm{transform:scale(.72)}
+  .cv-track .lg:hover .wm{transform:scale(.76)}
+
+  /* equipe */
+  .team{padding:48px 0 32px}
+  .team .sub{margin:12px auto 18px}
+  .fict{font-size:12px;margin-top:16px}
+  .tabs{justify-content:flex-start;margin:26px 0 10px;padding:0 1rem;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{min-width:auto;flex:0 0 auto;font-size:14.5px;padding:12px 14px}
+  .tcard{gap:14px;padding:10px;width:calc(100% - 2rem)}
+  .tcard .av{aspect-ratio:16/11}
+  .tcard h3{font-size:26px;margin:8px 0 2px}
+  .tcard dl{margin:14px 0 16px;padding-top:12px;font-size:14px;gap:6px 14px}
+  .tcard .btn{width:100%}
+
+  /* dúvidas */
+  summary{font-size:17px;padding:16px 0;gap:14px}
+  details p{font-size:14.5px;padding-bottom:18px}
+
+  /* agendamento */
+  .cta{padding-block:44px}
+  .cta .intro{margin:12px 0 18px}
+  .steps li{padding:10px 0;font-size:14px;grid-template-columns:32px 1fr}
+  form.card{padding:18px 14px;gap:18px}
+  legend,.lb{font-size:14.5px;margin-bottom:8px}
+  .choices span.c{min-height:46px;padding:8px 12px;font-size:15px}
+  .choices span.c small{font-size:12px}
+  input[type=text],select,textarea{min-height:46px;font-size:16px}
+  textarea{min-height:84px}
+  .submit .btn{min-height:52px}
+
+  /* rodapé */
+  footer{padding:32px 18px 20px;margin-bottom:8px}
+  .fcols{grid-template-columns:1fr 1fr;gap:24px 16px;font-size:13.5px}
+  .fcols>div:nth-child(2){grid-column:1/-1;order:3}
+  .fcols>div:nth-child(1){order:1}.fcols>div:nth-child(3){order:2}
+  .fcard{order:4}
+  .fcols h4{margin-bottom:8px;font-size:13px}
+  .fcols a:not(.btn),.fcols p{padding:3px 0}
+  .fbig{margin:32px 0 16px}
+  .legal{font-size:11.5px;gap:8px;padding-top:16px}
+
+  /* páginas de especialidade */
+  .about .ph{aspect-ratio:4/3}
+  .about .row{margin-top:20px!important}
+  .signs{grid-template-columns:1fr 1fr;gap:8px}
+  .sign{min-height:0;padding:14px;gap:14px}
+  .sign p{font-size:14.5px}
+  .journey li{padding:18px 0 4px}
+  .journey b{margin-bottom:8px}
+  .journey h3{font-size:19px;margin-bottom:4px}
+  .journey p{font-size:14px}
+  .others a{padding:9px 12px;font-size:14px}
+
+  /* privacidade */
+  .doc-hero{padding:110px 0 36px}
+  .doc-hero h1{font-size:34px}
+  .doc-body{padding:32px 16px}
+  .prose h2{font-size:22px;margin:32px 0 10px}
+  .prose p,.prose li{font-size:15px}
+
+  .fab{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .fab-btn{width:56px;height:56px}
+  .cookie{padding:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
