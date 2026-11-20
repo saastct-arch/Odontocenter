@@ -9,6 +9,8 @@ WA = P['wa']
 AR = '<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap">'
 HOURS = 'Segunda a sexta, das 8h às 18h'
+# Endereço público do site. Trocar pelo domínio definitivo quando estiver registrado e rodar o build de novo.
+SITE_URL = 'https://odontocenter.vercel.app'
 U = {
  'canaa': dict(nome='Canaã', rua='Rua dos Profetas, 210', bairro='Canaã', cep='35164-201', fone='(31) 99625-2944', tel='+5531996252944', extra=''),
  'centro': dict(nome='Centro', rua='Rua Juiz de Fora, 60, sala 102', bairro='Centro', cep='35160-031', fone='(31) 97510-3555', tel='+5531975103555', extra='Edifício Sandra Andrade'),
@@ -95,7 +97,7 @@ def fab_cookie(pre):
 def ld_units():
     out = []
     for k, u in U.items():
-        out.append({"@context": "https://schema.org", "@type": "Dentist", "name": f"OdontoCenter {u['nome']}", "url": "https://odontocenter.com.br/",
+        out.append({"@context": "https://schema.org", "@type": "Dentist", "name": f"OdontoCenter {u['nome']}", "url": SITE_URL + "/",
                     "telephone": u['tel'], "foundingDate": "2001-08-09", "priceRange": "$$", "hasMap": maps(u),
                     "address": {"@type": "PostalAddress", "streetAddress": f"{u['rua']} - {u['bairro']}", "addressLocality": "Ipatinga", "addressRegion": "MG", "postalCode": u['cep'], "addressCountry": "BR"},
                     "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00"}],
@@ -106,16 +108,25 @@ def ld_faq(faq):
 def faq_html(faq):
     return ''.join(f'<details{" open" if i == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for i, (q, a) in enumerate(faq))
 
-def page(title, desc, pre, body, canonical, full=True):
+def page(title, desc, pre, body, canonical, full=True, og='og-home.jpg', og_alt='OdontoCenter, clínica odontológica em Ipatinga'):
     """full=True: documento completo (site e páginas extras). full=False: fragmento da página principal do artifact."""
     links = f'{FONTS}\n<link rel="stylesheet" href="{pre}assets/site.css">'
     tail = f'<script src="{pre}assets/site.js"></script>'
     if not full:
         return f'<title>OdontoCenter Ipatinga</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n{links}\n<style>body{{margin:0}}</style>\n{body}\n{tail}\n'
-    return (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
-            f'<title>{title}</title>\n<meta name="description" content="{html.escape(desc)}">\n<link rel="canonical" href="https://odontocenter.com.br/{canonical}">\n'
-            f'<meta property="og:title" content="{html.escape(title)}">\n<meta property="og:description" content="{html.escape(desc)}">\n<meta property="og:locale" content="pt_BR">\n'
-            f'{links}\n<style>html,body{{margin:0}}:root{{color-scheme:dark}}</style>\n</head>\n<body>\n{body}\n{tail}\n</body>\n</html>\n')
+    url = SITE_URL + '/' + re.sub(r'\.html$', '', canonical)
+    img = f'{SITE_URL}/og/{og}'
+    e = html.escape
+    head = (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+            f'<title>{e(title)}</title>\n<meta name="description" content="{e(desc)}">\n<link rel="canonical" href="{url}">\n'
+            f'<meta name="theme-color" content="#031A40">\n<meta name="application-name" content="OdontoCenter">\n<meta name="apple-mobile-web-app-title" content="OdontoCenter">\n<meta name="format-detection" content="telephone=no">\n'
+            f'<link rel="icon" href="{pre}favicon.ico" sizes="48x48">\n<link rel="icon" href="{pre}favicon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="{pre}apple-touch-icon.png">\n'
+            f'<link rel="mask-icon" href="{pre}icons/safari-pinned-tab.svg" color="#0858B8">\n<link rel="manifest" href="{pre}site.webmanifest">\n'
+            f'<meta property="og:type" content="website">\n<meta property="og:site_name" content="OdontoCenter">\n<meta property="og:locale" content="pt_BR">\n'
+            f'<meta property="og:url" content="{url}">\n<meta property="og:title" content="{e(title)}">\n<meta property="og:description" content="{e(desc)}">\n'
+            f'<meta property="og:image" content="{img}">\n<meta property="og:image:secure_url" content="{img}">\n<meta property="og:image:type" content="image/jpeg">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="{e(og_alt)}">\n'
+            f'<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="{e(title)}">\n<meta name="twitter:description" content="{e(desc)}">\n<meta name="twitter:image" content="{img}">\n<meta name="twitter:image:alt" content="{e(og_alt)}">\n')
+    return (head + f'{links}\n<style>html,body{{margin:0}}:root{{color-scheme:dark}}</style>\n</head>\n<body>\n{body}\n{tail}\n</body>\n</html>\n')
 
 def shell(pre, home, main):
     return (f'<a class="skip" href="#conteudo">Ir para o conteúdo</a>\n{announce(pre)}\n<div class="navcard stick" id="stick" aria-hidden="true">{nav(pre, home)}</div>\n'
@@ -220,11 +231,11 @@ def spec_page(s):
   <div class="others rv">{others}</div>
 </div></section>'''
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Início", "item": "https://odontocenter.com.br/"},
-        {"@type": "ListItem", "position": 2, "name": s['name'], "item": f"https://odontocenter.com.br/especialidades/{s['slug']}.html"}]}
+        {"@type": "ListItem", "position": 1, "name": "Início", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": s['name'], "item": f"{SITE_URL}/especialidades/{s['slug']}"}]}
     ld = [ld_faq(s['faq']), crumbs] + ld_units()
     body = shell(pre, False, main) + f'\n<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
-    return page(f'{s["h1"]} | OdontoCenter', f'{s["sub"]} Unidades Canaã e Centro, {HOURS.lower()}. Agende pelo WhatsApp.', pre, body, f'especialidades/{s["slug"]}.html')
+    return page(f'{s["h1"]} | OdontoCenter', f'{s["sub"]} Unidades Canaã e Centro, {HOURS.lower()}. Agende pelo WhatsApp.', pre, body, f'especialidades/{s["slug"]}.html', og=f'og-{s["slug"]}.jpg', og_alt=f'{s["h1"]} na OdontoCenter')
 
 # ------------------------------------------------------------ política de privacidade
 def privacy():
@@ -250,7 +261,7 @@ def privacy():
 <p>Para exercer seus direitos ou tirar dúvidas, fale com a clínica pelo WhatsApp da unidade Canaã, {U["canaa"]["fone"]}, ou da unidade Centro, {U["centro"]["fone"]}, {HOURS.lower()}. Encarregado de dados (DPO): <em>[a definir pela clínica]</em>.</p>
 </div></section>'''
     body = shell(pre, False, main).replace('href="#agendar"', 'href="index.html#agendar"')
-    return page('Política de privacidade e cookies | OdontoCenter', 'Como a OdontoCenter trata os dados pessoais de quem visita o site e agenda pelo WhatsApp, conforme a LGPD.', pre, body, 'politica-de-privacidade.html')
+    return page('Política de privacidade e cookies | OdontoCenter', 'Como a OdontoCenter trata os dados pessoais de quem visita o site e agenda pelo WhatsApp, conforme a LGPD.', pre, body, 'politica-de-privacidade.html', og='og-privacidade.jpg', og_alt='Política de privacidade da OdontoCenter')
 
 if __name__ == '__main__':
     open('index.html', 'w').write(home('', True))
@@ -258,4 +269,7 @@ if __name__ == '__main__':
     for s in SPECS:
         open(f'especialidades/{s["slug"]}.html', 'w').write(spec_page(s))
     open('politica-de-privacidade.html', 'w').write(privacy())
+    urls = [''] + [f'especialidades/{s["slug"]}' for s in SPECS] + ['politica-de-privacidade']
+    open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{SITE_URL}/{u}</loc><changefreq>monthly</changefreq><priority>{"1.0" if not u else "0.8"}</priority></url>\n' for u in urls) + '</urlset>\n')
+    open('robots.txt', 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n')
     print('ok', len(SPECS), 'especialidades')
